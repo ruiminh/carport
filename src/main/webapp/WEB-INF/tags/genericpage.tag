@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/styles.css">
-    <meta name="theme-color" content="#7952b3">
+    <meta name="theme-color" content="#000099">
 </head>
 <body>
     <!--
@@ -24,7 +24,7 @@
     -->
 <header class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 bg-white border-bottom shadow-sm">
     <div class="h5 my-0 me-md-auto fw-normal">
-        <p>Demo Project for DAT 2. semester</p>
+
         <p style="font-size: larger">
             <jsp:invoke fragment="header"/>
         </p>
@@ -34,8 +34,8 @@
             <a class="p-2 text-dark" href="<%=request.getContextPath()%>">Home</a>
         </c:if>
         <a class="p-2 text-dark" href="#">Orders</a>
-        <a class="p-2 text-dark" href="#">Profile</a>
-        <a class="p-2 text-dark" href="#">About</a>
+        <a class="p-2 text-dark" href="#">Profil</a>
+        <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/showBasket">Indkøbskurv</a>
     </nav>
 
     <div>
