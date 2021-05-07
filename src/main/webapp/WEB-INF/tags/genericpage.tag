@@ -36,6 +36,7 @@
         <a class="p-2 text-dark" href="#">Orders</a>
         <a class="p-2 text-dark" href="#">Profil</a>
         <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/showBasket">Indkøbskurv</a>
+        <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/standartcarport">Carporte</a>
     </nav>
 
     <div>
