@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Basket {
 
-    private List<Order> orderList = new ArrayList<>();
+
+private List<Order> orderList = new ArrayList<>();
     private int orderId;
 
     public Basket() {
@@ -27,16 +28,7 @@ public class Basket {
         orderList.add(order);
     }
 
-    public int totalPrice()
-    {
-        int sum= 0;
-        for(Order order:orderList)
-        {
-            sum+=Order.getPrice();
-        }
-        return sum;
 
-    }
 
 
 

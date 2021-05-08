@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="col-4 padding-0">
-                                <h5 class="card-price">${{order.product.price}}</h5>
+                                <h5 class="card-price">${{order.carport.price}}</h5>
                             </div>
 
 

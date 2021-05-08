@@ -101,7 +101,7 @@ public class Order {
         return quantity;
     }
 
-    public static double getPrice() {
+    public double getPrice() {
         return price;
     }
 
