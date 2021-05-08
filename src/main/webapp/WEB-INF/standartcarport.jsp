@@ -11,29 +11,35 @@
 
 
 
-
-
     <jsp:body>
 
+
+
+
+
         <div class="row card-deck">
+        <form name="addtobasket" action="${pageContext.request.contextPath}/fc/basket"  method="POST">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center">
 
                     <div class="card-body">
-                        <a href="#"><img src="${pageContext.servletContext.contextPath}/css/ProductPage.jpg"  height="200" width="200"/>
-                                         </a>
-                        <h5 class="card-title">${{order.product.price}}</h5>
+                        <img src="${pageContext.servletContext.contextPath}/css/ProductPage.jpg" height="121" width="200"/>
+
+                        <h5 class="card-title">CARPORT ENKELT 3,60X5,40M CAR01H HØJ REJSNING</h5>
+
                         <div class="row">
+
                             <div class="col-4 padding-0" >
-                                <input type="number" min="0" class="form-control"
-                                       [(ngModel)]=order.quantity>
-                            </div>
-                            <div class="col-4 padding-0">
-                                <button class="btn btn-primary" (click)="addToCart(order)"
-                                        [disabled]="order.quantity <= 0">Add To Cart
-                                </button>
+                                <input type="number" min="0" class="form-control">
                             </div>
 
+                            <div class="col-4 padding-0">
+                                <button class="btn btn-primary" type="submit">Læg i indkøbskurv</button>
+                            </div>
+
+                            <div class="col-4 padding-0">
+                                <h5 class="card-price">${{order.product.price}}</h5>
+                            </div>
 
 
 
@@ -43,8 +49,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
+        </form>
 
 
 
