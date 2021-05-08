@@ -2,6 +2,7 @@ package web;
 
 import business.exceptions.UserException;
 import business.persistence.Database;
+import business.persistence.OrderMapper;
 import web.commands.*;
 
 import java.io.IOException;
@@ -39,6 +40,10 @@ public class FrontController extends HttpServlet
         }
 
         // Initialize whatever global datastructures needed here:
+
+        OrderMapper orderMapper  = new OrderMapper(database);
+        getServletContext().setAttribute("orderList", orderMapper.getStandardOrder());
+
 
     }
 

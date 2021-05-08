@@ -15,6 +15,7 @@ public class Order {
     private int shedWidth;
     private int shedWalltype;
     private int shedFloorType;
+    private int quantity;
     private double price;
     private String comments;
     private boolean isAccepted;
@@ -34,5 +35,13 @@ public class Order {
         this.shedWalltype = shedWalltype;
         this.shedFloorType = shedFloorType;
         this.price = price;
+    }
+
+    public Order(int customerId, int quantity, double price) {
+
+        this.customerId = customerId;
+        this.quantity = quantity;
+        this.price = price;
+
     }
 }
