@@ -44,4 +44,76 @@ public class Order {
         this.price = price;
 
     }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getIncline() {
+        return incline;
+    }
+
+    public int getRooftileType() {
+        return rooftileType;
+    }
+
+    public int getWithShed() {
+        return withShed;
+    }
+
+    public int getShedLenght() {
+        return shedLenght;
+    }
+
+    public int getShedHight() {
+        return shedHight;
+    }
+
+    public int getShedWidth() {
+        return shedWidth;
+    }
+
+    public int getShedWalltype() {
+        return shedWalltype;
+    }
+
+    public int getShedFloorType() {
+        return shedFloorType;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public static double getPrice() {
+        return price;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public boolean isAccepted() {
+        return isAccepted;
+    }
+
+    public boolean isDelivered() {
+        return isDelivered;
+    }
 }
