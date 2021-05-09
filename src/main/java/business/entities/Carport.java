@@ -2,6 +2,8 @@ package business.entities;
 
 public class Carport {
 
+    private Order order;
+
     private int piecesId;
     private int orderId;
     private int length;
@@ -35,7 +37,7 @@ public class Carport {
     }
 
     public double getPrice() {
-        return price;
+        return order.getPrice() * order.getQuantity();
     }
 
     public String getDescription() {

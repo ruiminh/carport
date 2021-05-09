@@ -18,7 +18,7 @@
 
 
         <div class="row card-deck">
-        <form name="addtobasket" action="${pageContext.request.contextPath}/fc/basket"  method="POST">
+        <form name="addtobasket" action="${pageContext.request.contextPath}/fc/showBasket"  method="POST">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center">
 
@@ -29,6 +29,7 @@
 
                         <div class="row">
 
+
                             <div class="col-4 padding-0" >
                                 <input type="number" min="0" class="form-control">
                             </div>
@@ -38,9 +39,8 @@
                             </div>
 
                             <div class="col-4 padding-0">
-                                <h5 class="card-price">${{order.carport.price}}</h5>
+                                <h5 class="card-price">${{order.price}}</h5>
                             </div>
-
 
 
 
