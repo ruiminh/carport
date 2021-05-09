@@ -49,7 +49,7 @@ public class OrderMapper {
 
 
 
-    public void insertOrder(int customerID, int quantity, double price) throws SQLException {
+    public void insertStandardOrder(int customerID, int quantity, double price) throws SQLException {
         try (Connection connection = database.connect()) {
 
             String sql = "INSERT INTO Orders (CustomerId,Quantity,Price) VALUES (?,?,?);";
