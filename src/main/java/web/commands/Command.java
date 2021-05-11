@@ -30,6 +30,7 @@ public abstract class Command
         commands.put("employeepage", new CommandProtectedPage("employeepage", "employee"));
         commands.put("showBasket", new BasketCommand("showBasket"));
         commands.put("standartcarport", new CommandUnprotectedPage("standartcarport"));
+        commands.put("carportdesignpage",new CommandUnprotectedPage("carportdesignpage"));
     }
 
     public static Command fromPath(
