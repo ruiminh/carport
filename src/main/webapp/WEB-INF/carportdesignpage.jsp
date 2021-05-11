@@ -4,7 +4,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Login page
+         Design Page
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -31,6 +31,17 @@
                                 <option value="${carportwidth}">${carportwidth} </option>
                             </c:forEach>
                         </select>
+                        <label for="rooftype">Tag</label>
+                        <select class="form-select form-select-sm mb-3"  aria-label="rooftype" name="rooftype" id="rooftype"></select>
+                        <p>Med redskabsrum?</p>
+                        <div class="form-check form=check-online">
+                            <input class="form-check-input" type="radio" id="yes" name="withshed" value="1">
+                            <label class="form-check-label" for="yes">yes</label>
+                        </div>
+                        <div class="form-check form=check-online">
+                            <input class="form-check-input" type="radio" id="no" name="withshed" value="0">
+                            <label class="form-check-label" for="no">no</label><br>
+                        </div>
                     <button class="btn btn-primary" type="submit">læg i kurv</button>
                 </form>
         </div>
