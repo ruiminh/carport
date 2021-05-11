@@ -12,8 +12,6 @@
     <jsp:body>
 
 
-
-
     </jsp:body>
 
 </t:genericpage>

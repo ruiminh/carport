@@ -42,7 +42,7 @@ public class FrontController extends HttpServlet
         // Initialize whatever global datastructures needed here:
 
         OrderMapper orderMapper  = new OrderMapper(database);
-        getServletContext().setAttribute("orderList", orderMapper.getStandardOrder());
+        getServletContext().setAttribute("standardCarportList", orderMapper.getStandardCarport());
 
 
     }

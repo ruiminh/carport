@@ -19,8 +19,8 @@ public class OrderMapper {
     }
 
 
-    public List<Order> getStandardOrder(){
-    List<Order> StandardOrderList =new ArrayList<>();
+    public List<Order> getStandardCarport(){
+    List<Order> StandardCarportList =new ArrayList<>();
 
         try (Connection connection = database.connect()) {
             String sql = "SELECT * FROM Orders";
@@ -28,16 +28,16 @@ public class OrderMapper {
                 ResultSet rs = ps.executeQuery();
 
                 while (rs.next()) {
-                    int customerId = rs.getInt("CustomerId");
+                    int carportId = rs.getInt("carportId");
                     int quantity = rs.getInt("Quantity");
                     double price = rs.getDouble("price");
-                    StandardOrderList.add(new Order(customerId,quantity,price));
+                    StandardCarportList.add(new Order(carportId,quantity,price));
                 }
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return StandardOrderList;
+        return StandardCarportList;
     }
 
 
@@ -49,15 +49,15 @@ public class OrderMapper {
 
 
 
-    public void insertStandardOrder(int customerID, int quantity, double price) throws SQLException {
+    public void insertStandardOrder(int carportId, int quantity, double price) throws SQLException {
         try (Connection connection = database.connect()) {
 
-            String sql = "INSERT INTO Orders (CustomerId,Quantity,Price) VALUES (?,?,?);";
+            String sql = "INSERT INTO Orders (carportId,Quantity,Price) VALUES (?,?,?);";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
 
-        ps.setInt(1,customerID);
+        ps.setInt(1,carportId);
         ps.setInt(2,quantity);
         ps.setDouble(3,price);
 
@@ -70,4 +70,6 @@ public class OrderMapper {
 
 
     }
+
+
 }

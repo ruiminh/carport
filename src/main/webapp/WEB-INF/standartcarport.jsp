@@ -31,7 +31,7 @@
 
 
                             <div class="col-4 padding-0" >
-                                <input type="number" min="0" class="form-control">
+                                <input type="number" min="0" class="form-control" value="${param.quantity}">
                             </div>
 
                             <div class="col-4 padding-0">
@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="col-4 padding-0">
-                                <h5 class="card-price">${{order.price}}</h5>
+                                <h5 class="card-price">${{param.price}}</h5>
                             </div>
 
 
