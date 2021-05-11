@@ -13,6 +13,14 @@
 
     <jsp:body>
 
+        <select class="form-select form-select-lg mb-3"  aria-label="product" name="product" id="product">
+            <option selected>Vælg topping</option>
+            <c:forEach var="product" items="${applicationScope.productList}">
+                <option value="carportId">${product.name} &nbsp;&nbsp; ${product.price}Kr. </option>
+            </c:forEach>
+
+
+        </select>
 
 
 
@@ -25,7 +33,15 @@
                     <div class="card-body">
                         <img src="${pageContext.servletContext.contextPath}/css/ProductPage.jpg" height="121" width="200"/>
 
-                        <h5 class="card-title">CARPORT ENKELT 3,60X5,40M CAR01H HØJ REJSNING</h5>
+
+
+
+
+
+
+
+
+                        <h5 class="card-title">${{param.price}}</h5>
 
                         <div class="row">
 

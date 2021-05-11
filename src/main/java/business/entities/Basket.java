@@ -6,15 +6,15 @@ import java.util.List;
 public class Basket {
 
 
-private List<Order> StandardOrderList = new ArrayList<Order>();
+private static final List<Product> productList = new ArrayList<>();
     private int orderId;
 
     public Basket() {
 
     }
 
-    public List<Order> getStandardOrderList(){
-        return StandardOrderList;
+    public static List<Product> getProductList(){
+        return productList;
     }
 
     public void setOrderId(int orderId) {
@@ -25,16 +25,14 @@ private List<Order> StandardOrderList = new ArrayList<Order>();
         return orderId;
     }
 
-    public void addToCart(Order order){
-        StandardOrderList.add(order);
-    }
+    public void addToCart(Product product){ productList.add(product); }
 
     public double getTotalPrice()
     {
         double sum= 0;
-        for(Order carport:StandardOrderList)
+        for(Product product:productList)
         {
-            sum+=carport.getPrice();
+            sum+=product.getPrice();
         }
         return sum;
 

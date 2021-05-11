@@ -1,8 +1,9 @@
 package web.commands;
 
 import business.entities.Basket;
-import business.entities.Carport;
+
 import business.entities.Order;
+import business.entities.Product;
 import business.exceptions.UserException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,19 +19,20 @@ public class BasketCommand extends CommandUnprotectedPage {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
-        int orderId;
+        int carportId;
+        String name;
         double price;
-        int quantity;
+
         try{
-            orderId= Integer.parseInt(request.getParameter("carportId"));
+            carportId= Integer.parseInt(request.getParameter("carportId"));
             price= Double.parseDouble(request.getParameter("price"));
-            quantity = Integer.parseInt(request.getParameter("quantity"));
+            name = request.getParameter("quantity");
 
         }catch(NumberFormatException ex){
             throw new UserException("Ingen valgte carporte");
         }
 
-        List<Order> standardCarportList =(List<Order>)request.getServletContext().getAttribute("standardCarportList");
+        List<Order> productList =(List<Order>)request.getServletContext().getAttribute("productList");
 
 
         HttpSession session= request.getSession();
@@ -43,12 +45,11 @@ public class BasketCommand extends CommandUnprotectedPage {
         }
 
 
+        Product product = new Product(carportId,name,price);
 
-       Order order = new Order();
+        basket.addToCart(product);
 
-        basket.addToCart(order);
-
-        session.setAttribute("showbasket",order);
+        session.setAttribute("showbasket",product);
 
         return pageToShow;
     }

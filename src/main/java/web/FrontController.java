@@ -1,9 +1,10 @@
 package web;
 
+import business.entities.Basket;
 import business.entities.Measurement;
 import business.exceptions.UserException;
 import business.persistence.Database;
-import business.persistence.OrderMapper;
+import business.persistence.ProductMapper;
 import web.commands.*;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class FrontController extends HttpServlet
     private final static String URL = "jdbc:mysql://localhost:3306/cupcake?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
     public static Database database;
-
+    ProductMapper productMapper;
     public void init() throws ServletException
     {
         // Initialize database connection
@@ -42,10 +43,18 @@ public class FrontController extends HttpServlet
 
         // Initialize whatever global datastructures needed here:
 
-        OrderMapper orderMapper  = new OrderMapper(database);
-        getServletContext().setAttribute("standardCarportList", orderMapper.getStandardCarport());
+        ProductMapper productMapper = new ProductMapper(database);
+
         getServletContext().setAttribute("carportLengthList", Measurement.getCarportLengths());
         getServletContext().setAttribute("carportWidthList",Measurement.getCarportWidths());
+        try {
+
+            getServletContext().setAttribute("productList", productMapper.findAllProduct());
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     protected void processRequest(
