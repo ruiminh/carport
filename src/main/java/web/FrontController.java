@@ -1,5 +1,6 @@
 package web;
 
+import business.entities.Measurement;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import business.persistence.OrderMapper;
@@ -43,8 +44,8 @@ public class FrontController extends HttpServlet
 
         OrderMapper orderMapper  = new OrderMapper(database);
         getServletContext().setAttribute("standardCarportList", orderMapper.getStandardCarport());
-
-
+        getServletContext().setAttribute("carportLengthList", Measurement.getCarportLengths());
+        getServletContext().setAttribute("carportWidthList",Measurement.getCarportWidths());
     }
 
     protected void processRequest(
