@@ -22,7 +22,7 @@ public class BasketCommand extends CommandUnprotectedPage {
         double price;
         int quantity;
         try{
-            orderId= Integer.parseInt(request.getParameter("orderId"));
+            orderId= Integer.parseInt(request.getParameter("carportId"));
             price= Double.parseDouble(request.getParameter("price"));
             quantity = Integer.parseInt(request.getParameter("quantity"));
 
@@ -48,7 +48,7 @@ public class BasketCommand extends CommandUnprotectedPage {
 
         basket.addToCart(order);
 
-        session.setAttribute("basket",order);
+        session.setAttribute("showbasket",order);
 
         return pageToShow;
     }

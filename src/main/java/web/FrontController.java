@@ -1,6 +1,5 @@
 package web;
 
-import business.entities.Measurement;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import business.persistence.OrderMapper;
@@ -43,9 +42,8 @@ public class FrontController extends HttpServlet
         // Initialize whatever global datastructures needed here:
 
         OrderMapper orderMapper  = new OrderMapper(database);
-        getServletContext().setAttribute("orderList", orderMapper.getStandardOrder());
-        getServletContext().setAttribute("carportLengthList", Measurement.getCarportLengths());
-        getServletContext().setAttribute("carportWidthList", Measurement.getCarportWidths());
+        getServletContext().setAttribute("standardCarportList", orderMapper.getStandardCarport());
+
 
     }
 
