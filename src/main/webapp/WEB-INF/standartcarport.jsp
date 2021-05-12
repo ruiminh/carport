@@ -13,10 +13,12 @@
 
     <jsp:body>
 
+        <form name="addtobasket" action="${pageContext.request.contextPath}/fc/showBasket"  method="POST">
+
         <select class="form-select form-select-lg mb-3"  aria-label="product" name="product" id="product">
             <option selected>Vælg topping</option>
-            <c:forEach var="product" items="${applicationScope.productList}">
-                <option value="carportId">${product.name} &nbsp;&nbsp; ${product.price}Kr. </option>
+            <c:forEach var="product" items="${applicationScope.productList}" varStatus="status">
+                <option value="carportId">${product.carportId} ${product.name}  &nbsp;&nbsp; ${product.price}Kr. </option>
             </c:forEach>
 
 
