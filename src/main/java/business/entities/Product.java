@@ -5,13 +5,15 @@ public class Product {
     private int carportId;
     private String name;
     private double price;
+    private int quantity;
     private String pictureUrl;
 
 
-    public Product(int carportId, String name, double price, String pictureUrl) {
+    public Product(int carportId, String name, double price, int quantity, String pictureUrl) {
         this.carportId = carportId;
         this.name = name;
         this.price = price;
+        this.quantity = quantity;
         this.pictureUrl = pictureUrl;
     }
 
@@ -59,5 +61,13 @@ public class Product {
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

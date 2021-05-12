@@ -25,8 +25,10 @@ public class BasketCommand extends CommandUnprotectedPage {
 
         try{
             carportId= Integer.parseInt(request.getParameter("carportId"));
+            name= request.getParameter("name");
             price= Double.parseDouble(request.getParameter("price"));
             name = request.getParameter("quantity");
+
 
         }catch(NumberFormatException ex){
             throw new UserException("Ingen valgte carporte");
@@ -49,7 +51,7 @@ public class BasketCommand extends CommandUnprotectedPage {
 
         basket.addToCart(product);
 
-        session.setAttribute("showbasket",product);
+        session.setAttribute("basket",product);
 
         return pageToShow;
     }

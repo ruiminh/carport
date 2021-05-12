@@ -52,12 +52,13 @@ public class ProductMapper {
 
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO order (StandardCarportName, price) VALUES (?, ?)";
+            String sql = "INSERT INTO orders (StandardCarportName, price,Quantity) VALUES (?, ?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
                 ps.setString(1, product.getName());
                 ps.setDouble(2, product.getPrice());
+                ps.setInt(3,product.getQuantity());
 
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();

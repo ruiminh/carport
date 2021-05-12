@@ -13,7 +13,7 @@
 
     <jsp:body>
 
-        <form name="addtobasket" action="${pageContext.request.contextPath}/fc/showBasket"  method="POST">
+
 
 
 
@@ -21,7 +21,7 @@
 
 
         <div class="row card-deck">
-        <form name="addtobasket" action="${pageContext.request.contextPath}/fc/showBasket"  method="POST">
+        <form name="addProduct" action="${pageContext.request.contextPath}/fc/showBasket"  method="POST">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center">
 
@@ -42,7 +42,7 @@
 
 
                             <div class="col-4 padding-0" >
-                                <input type="number" min="0" class="form-control" value="${param.quantity}">
+                                <input type="number" min="0" class="form-control" value="${product.quantity}">
                             </div>
 
                             <div class="col-4 padding-0">
