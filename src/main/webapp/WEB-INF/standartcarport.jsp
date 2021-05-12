@@ -15,14 +15,7 @@
 
         <form name="addtobasket" action="${pageContext.request.contextPath}/fc/showBasket"  method="POST">
 
-        <select class="form-select form-select-lg mb-3"  aria-label="product" name="product" id="product">
-            <option selected>Vælg topping</option>
-            <c:forEach var="product" items="${applicationScope.productList}" varStatus="status">
-                <option value="carportId">${product.carportId} ${product.name}  &nbsp;&nbsp; ${product.price}Kr. </option>
-            </c:forEach>
 
-
-        </select>
 
 
 
@@ -42,8 +35,8 @@
 
 
 
-
-                        <h5 class="card-title">${{param.price}}</h5>
+                        <c:forEach var="product" items="${applicationScope.productList}" varStatus="counter" begin="0" end="0">
+                        <h5 class="card-title">${{product.name}}</h5>
 
                         <div class="row">
 
@@ -57,10 +50,10 @@
                             </div>
 
                             <div class="col-4 padding-0">
-                                <h5 class="card-price">${{param.price}}</h5>
+                                <h5 class="card-price">${{product.price}}</h5>
                             </div>
 
-
+                            </c:forEach>
 
 
 
