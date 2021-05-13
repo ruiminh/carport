@@ -17,21 +17,32 @@
 
 
 
+
+
+
         <div class="row card-deck">
-        <form name="addtobasket" action="${pageContext.request.contextPath}/fc/showBasket"  method="POST">
+        <form name="addProduct" action="${pageContext.request.contextPath}/fc/showBasket"  method="POST">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card text-center">
 
                     <div class="card-body">
                         <img src="${pageContext.servletContext.contextPath}/css/ProductPage.jpg" height="121" width="200"/>
 
-                        <h5 class="card-title">CARPORT ENKELT 3,60X5,40M CAR01H HØJ REJSNING</h5>
+
+
+
+
+
+
+
+                        <c:forEach var="product" items="${applicationScope.productList}" varStatus="counter" begin="0" end="0">
+                        <h5 class="card-title">${{product.name}}</h5>
 
                         <div class="row">
 
 
                             <div class="col-4 padding-0" >
-                                <input type="number" min="0" class="form-control" value="${param.quantity}">
+                                <input type="number" min="0" class="form-control" value="${product.quantity}">
                             </div>
 
                             <div class="col-4 padding-0">
@@ -39,10 +50,10 @@
                             </div>
 
                             <div class="col-4 padding-0">
-                                <h5 class="card-price">${{param.price}}</h5>
+                                <h5 class="card-price">${{product.price}}</h5>
                             </div>
 
-
+                            </c:forEach>
 
 
 
