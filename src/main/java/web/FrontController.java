@@ -45,7 +45,7 @@ public class FrontController extends HttpServlet
         OrderMapper orderMapper  = new OrderMapper(database);
         getServletContext().setAttribute("standardCarportList", orderMapper.getStandardCarport());
         getServletContext().setAttribute("carportLengthList", Measurement.getCarportLengths());
-        getServletContext().setAttribute("carportWidthLish",Measurement.getCarportWidths());
+        getServletContext().setAttribute("carportWidthList",Measurement.getCarportWidths());
 
     }
 

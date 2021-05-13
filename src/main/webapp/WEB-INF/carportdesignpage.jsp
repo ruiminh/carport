@@ -42,6 +42,15 @@
                             <input class="form-check-input" type="radio" id="no" name="withshed" value="0">
                             <label class="form-check-label" for="no">no</label><br>
                         </div>
+                    <div>
+
+                    <label for="commend">commend</label>
+
+                    <textarea id="commend" name="commend" rows="4" cols="50">
+
+                    </textarea>
+                    </div>
+
                     <button class="btn btn-primary" type="submit">læg i kurv</button>
                 </form>
         </div>
