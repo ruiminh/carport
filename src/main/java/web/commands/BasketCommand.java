@@ -46,7 +46,7 @@ public class BasketCommand extends CommandUnprotectedPage {
 
         HttpSession session= request.getSession();
 
-        Basket basket = (Basket) session.getAttribute("showBasket");
+        Basket basket = (Basket) session.getAttribute("basket");
         //session.setAttribute("basket", basket);
 
         if(basket ==null){

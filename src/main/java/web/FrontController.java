@@ -47,8 +47,7 @@ public class FrontController extends HttpServlet
 
         getServletContext().setAttribute("carportLengthList", Measurement.getCarportLengths());
         getServletContext().setAttribute("carportWidthList",Measurement.getCarportWidths());
-<<<<<<< HEAD
-=======
+
         try {
 
             getServletContext().setAttribute("productList", productMapper.findAllProduct());
@@ -56,7 +55,7 @@ public class FrontController extends HttpServlet
             e.printStackTrace();
         }
 
->>>>>>> 23426013b3c59323e839a667986ce5ec770f3e2a
+
 
     }
 
