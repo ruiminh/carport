@@ -31,10 +31,10 @@ public class BasketCommand extends CommandUnprotectedPage {
         int quantity;
 
         try{
-            carportId= Integer.parseInt(request.getParameter("product"));
+            carportId= Integer.parseInt(request.getParameter("carportId"));
             name= request.getParameter("name");
             price= Double.parseDouble(request.getParameter("price"));
-            quantity = Integer.parseInt(request.getParameter("quantity"));
+
 
 
         }catch(NumberFormatException ex){
@@ -54,7 +54,7 @@ public class BasketCommand extends CommandUnprotectedPage {
         }
 
         Product product1 = getProductFromId(productList,carportId);
-        Product product = new Product(carportId,name,price,quantity);
+        Product product = new Product(carportId,name,price);
 
         basket.addToCart(product);
 
