@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-sm-1 col-form-label" for="name">Adresse</label>
+                    <label class="col-sm-1 col-form-label" for="adress">Adresse</label>
                     <div class="col-sm-4">
                         <input id="adress" class="form-control" type="text" name="adress" value="${param.adress}"  placeholder="Indtast Adresse">
                     </div>
@@ -52,11 +52,19 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-sm-1 col-form-label" for="phone">Telefon</label>
+                    <label class="col-sm-1 col-form-label" for="phone">By</label>
                     <div class="col-sm-4">
-                        <input id="phone" class="form-control" type="text" name="phone" value="${param.phone}"  placeholder="Indtast Telefonnummer">
+                        <input id="phone" class="form-control" type="text" name="phone" value="${param.phone}"  placeholder="Telefonnummer">
                     </div>
                 </div>
+
+
+
+
+
+
+
+
 
 
 
