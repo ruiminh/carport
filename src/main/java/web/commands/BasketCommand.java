@@ -31,7 +31,7 @@ public class BasketCommand extends CommandUnprotectedPage {
         int quantity;
 
         try{
-            carportId= Integer.parseInt(request.getParameter("carportId"));
+            carportId= Integer.parseInt(request.getParameter("product"));
             name= request.getParameter("name");
             price= Double.parseDouble(request.getParameter("price"));
             quantity = Integer.parseInt(request.getParameter("quantity"));

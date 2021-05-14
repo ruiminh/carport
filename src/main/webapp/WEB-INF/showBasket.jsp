@@ -20,13 +20,13 @@
         <table class="table table-striped">
 
             <thead><th>carportId</th><th>navn</th><th>Antal</th><th>pris</th><th></th></thead>
-            <c:forEach var="productEntry" varStatus="status" items="${sessionScope.basket.productList}">
+            <c:forEach var="product" varStatus="status" items="${sessionScope.basket.productList}">
 
                 <tr>
-                    <td>${productEntry.carportId}</td>
-                    <td>${productEntry.name}</td>
-                    <td>${productEntry.quantity}</td>
-                    <td>${productEntry.price}</td>
+                    <td>${product.carportId}</td>
+                    <td>${product.name}</td>
+                    <td>${product.quantity}</td>
+                    <td>${product.price}</td>
                     <td><button class="btn btn-outline-danger btn-sm" type="submit" name="delete" value="${status.index}">
                         delete</button>
 
