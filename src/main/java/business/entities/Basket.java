@@ -13,7 +13,7 @@ private static final List<Product> productList = new ArrayList<>();
 
     }
 
-    public static List<Product> getProductList(){
+    public List<Product> getProductList(){
         return productList;
     }
 
@@ -37,11 +37,6 @@ private static final List<Product> productList = new ArrayList<>();
         return sum;
 
     }
-
-
-
-
-
 
 
 }

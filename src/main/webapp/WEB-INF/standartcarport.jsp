@@ -46,12 +46,15 @@
                             </div>
 
                             <div class="col-4 padding-0">
-                                <button class="btn btn-primary" type="submit">Læg i indkøbskurv</button>
+                                <h5 class="card-price">${{product.price}}</h5>
                             </div>
 
                             <div class="col-4 padding-0">
-                                <h5 class="card-price">${{product.price}}</h5>
+                                <button class="btn btn-primary" type="submit">Læg i indkøbskurv</button>
                             </div>
+
+
+
 
                             </c:forEach>
 

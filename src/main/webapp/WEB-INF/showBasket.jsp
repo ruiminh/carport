@@ -12,7 +12,39 @@
     <jsp:body>
 
 
+        <div>
+        <h3>Du har valgt følgende carporte:</h3>
 
+        <br/>
+
+        <table class="table table-striped">
+
+            <thead><th>carportId</th><th>navn</th><th>Antal</th><th>pris</th><th></th></thead>
+            <c:forEach var="productEntry" varStatus="status" items="${sessionScope.basket.productList}">
+
+                <tr>
+                    <td>${productEntry.carportId}</td>
+                    <td>${productEntry.name}</td>
+                    <td>${productEntry.quantity}</td>
+                    <td>${productEntry.price}</td>
+                    <td><button class="btn btn-outline-danger btn-sm" type="submit" name="delete" value="${status.index}">
+                        delete</button>
+
+                    </td>
+                <tr/>
+            </c:forEach>
+        </table>
+
+        <p>Total pris:  ${sessionScope.basket.totalPrice()} Kr</p>
+
+        <br/>
+        <br/>
+
+        <div/>
+
+        <div>
+
+        <a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/fc/standardcarport" >Shop more</a>
 
     </jsp:body>
 

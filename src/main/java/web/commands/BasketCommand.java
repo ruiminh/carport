@@ -5,6 +5,8 @@ import business.entities.Basket;
 import business.entities.Order;
 import business.entities.Product;
 import business.exceptions.UserException;
+import business.persistence.ProductMapper;
+import business.services.ProductFacade;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +14,10 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class BasketCommand extends CommandUnprotectedPage {
+
+    private ProductMapper productMapper;
+    private ProductFacade productFacade;
+
 
     public BasketCommand(String pageToShow) {
         super(pageToShow);
@@ -22,19 +28,20 @@ public class BasketCommand extends CommandUnprotectedPage {
         int carportId;
         String name;
         double price;
+        int quantity;
 
         try{
             carportId= Integer.parseInt(request.getParameter("carportId"));
             name= request.getParameter("name");
             price= Double.parseDouble(request.getParameter("price"));
-            name = request.getParameter("quantity");
+            quantity = Integer.parseInt(request.getParameter("quantity"));
 
 
         }catch(NumberFormatException ex){
             throw new UserException("Ingen valgte carporte");
         }
 
-        List<Order> productList =(List<Order>)request.getServletContext().getAttribute("productList");
+        List<Product> productList =(List<Product>)request.getServletContext().getAttribute("productList");
 
 
         HttpSession session= request.getSession();
@@ -46,14 +53,24 @@ public class BasketCommand extends CommandUnprotectedPage {
             basket =new Basket();
         }
 
-
-        Product product = new Product(carportId,name,price);
+        Product product1 = getProductFromId(productList,carportId);
+        Product product = new Product(carportId,name,price,quantity);
 
         basket.addToCart(product);
 
-        session.setAttribute("basket",product);
+        session.setAttribute("basket",basket);
 
         return pageToShow;
+    }
+
+    private Product getProductFromId(List<Product> productList, int carportId) {
+        for(Product product : productList){
+            if(product.getCarportId()==carportId){
+                return product;
+
+            }
+        }
+        return null;
     }
 
 

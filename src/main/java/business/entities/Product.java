@@ -25,9 +25,22 @@ public class Product {
 
     }
 
-    public Product(String name, double price) {
+    public Product(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
+        this.quantity = quantity;
+
+    }
+
+    public Product(int carportId, String name, double price, int quantity) {
+
+        this.carportId=carportId;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+
+
+
 
     }
 
@@ -70,4 +83,6 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+
 }
