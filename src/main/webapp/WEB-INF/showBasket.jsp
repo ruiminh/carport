@@ -19,13 +19,13 @@
 
         <table class="table table-striped">
 
-            <thead><th>carportId</th><th>navn</th><th>Antal</th><th>pris</th><th></th></thead>
+            <thead><th>carportId</th><th>navn</th>><th>pris</th><th></th></thead>
             <c:forEach var="product" varStatus="status" items="${sessionScope.basket.cartList}">
 
                 <tr>
                     <td>${product.carportId}</td>
                     <td>${product.name}</td>
-                   
+
                     <td>${product.price}</td>
                     <td><button class="btn btn-outline-danger btn-sm" type="submit" name="delete" value="${status.index}">
                         delete</button>
