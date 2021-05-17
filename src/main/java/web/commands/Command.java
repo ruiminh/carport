@@ -31,6 +31,7 @@ public abstract class Command
         commands.put("showBasket", new BasketCommand("showBasket"));
         commands.put("standartcarport", new CommandUnprotectedPage("standartcarport"));
         commands.put("carportdesignpage",new CommandUnprotectedPage("carportdesignpage"));
+        commands.put("linkBasket", new CommandUnprotectedPage("showBasket"));
     }
 
     public static Command fromPath(

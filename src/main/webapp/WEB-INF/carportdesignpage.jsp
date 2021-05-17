@@ -32,7 +32,9 @@
                             </c:forEach>
                         </select>
                         <label for="rooftype">Tag</label>
-                        <select class="form-select form-select-sm mb-3"  aria-label="rooftype" name="rooftype" id="rooftype"></select>
+                        <select class="form-select form-select-sm mb-3"  aria-label="rooftype" name="rooftype" id="rooftype">
+                            <option selected>vælg togpladser</option>
+                        </select>
                         <p>Med redskabsrum?</p>
                         <div class="form-check form=check-online">
                             <input class="form-check-input" type="radio" id="yes" name="withshed" value="1">
@@ -42,14 +44,19 @@
                             <input class="form-check-input" type="radio" id="no" name="withshed" value="0">
                             <label class="form-check-label" for="no">no</label><br>
                         </div>
-                    <div>
 
-                    <label for="commend">commend</label>
+                    <c:if test="${withshed==1}">
+                        <p>hej hej:)</p>
+                    </c:if>
 
-                    <textarea id="commend" name="commend" rows="4" cols="50">
+                        <div>
 
-                    </textarea>
-                    </div>
+                                <p>Her kan du skrive en commend</p>
+
+                                <textarea id="commend" name="commend" rows="4" cols="50">
+
+                                </textarea>
+                        </div>
 
                     <button class="btn btn-primary" type="submit">læg i kurv</button>
                 </form>
