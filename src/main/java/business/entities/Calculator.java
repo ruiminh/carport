@@ -1,3 +1,5 @@
+package business.entities;
+
 public class Calculator {
 double totalPrice;
 int orderId = 0;
