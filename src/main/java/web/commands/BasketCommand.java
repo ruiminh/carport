@@ -17,7 +17,7 @@ public class BasketCommand extends CommandUnprotectedPage {
 
     private ProductMapper productMapper;
     private ProductFacade productFacade;
-
+    private Product product;
 
     public BasketCommand(String pageToShow) {
         super(pageToShow);
@@ -25,23 +25,21 @@ public class BasketCommand extends CommandUnprotectedPage {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
-        int carportId;
-        String name;
-        double price;
-        int quantity;
-
-        try{
-            carportId= Integer.parseInt(request.getParameter("carportId"));
-            name= request.getParameter("name");
-            price= Double.parseDouble(request.getParameter("price"));
+        int carportId = 0;
+        String name = request.getParameter("name");
+        double price = Double.parseDouble(request.getParameter("price"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
 
 
 
-        }catch(NumberFormatException ex){
-            throw new UserException("Ingen valgte carporte");
-        }
 
-        List<Product> productList =(List<Product>)request.getServletContext().getAttribute("productList");
+        
+
+
+
+
+
+        List<Product> cartList =(List<Product>)request.getServletContext().getAttribute("cartList");
 
 
         HttpSession session= request.getSession();
@@ -53,7 +51,7 @@ public class BasketCommand extends CommandUnprotectedPage {
             basket =new Basket();
         }
 
-        Product product1 = getProductFromId(productList,carportId);
+        Product product1 = getProductFromId(cartList,carportId);
         Product product = new Product(carportId,name,price);
 
         basket.addToCart(product);

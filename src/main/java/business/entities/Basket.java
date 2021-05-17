@@ -6,15 +6,15 @@ import java.util.List;
 public class Basket {
 
 
-private static final List<Product> productList = new ArrayList<>();
+private static final List<Product> cartList = new ArrayList<>();
     private int orderId;
 
     public Basket() {
 
     }
 
-    public List<Product> getProductList(){
-        return productList;
+    public List<Product> getCartList(){
+        return cartList;
     }
 
     public void setOrderId(int orderId) {
@@ -25,12 +25,12 @@ private static final List<Product> productList = new ArrayList<>();
         return orderId;
     }
 
-    public void addToCart(Product product){ productList.add(product); }
+    public void addToCart(Product product){ cartList.add(product); }
 
     public double getTotalPrice()
     {
         double sum= 0;
-        for(Product product:productList)
+        for(Product product:cartList)
         {
             sum+=product.getPrice();
         }
@@ -38,5 +38,10 @@ private static final List<Product> productList = new ArrayList<>();
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Basket{" +
+                "orderId=" + orderId +
+                '}';
+    }
 }

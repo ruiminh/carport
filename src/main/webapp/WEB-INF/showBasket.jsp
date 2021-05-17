@@ -20,12 +20,12 @@
         <table class="table table-striped">
 
             <thead><th>carportId</th><th>navn</th><th>Antal</th><th>pris</th><th></th></thead>
-            <c:forEach var="product" varStatus="status" items="${sessionScope.basket.productList}">
+            <c:forEach var="product" varStatus="status" items="${sessionScope.basket.cartList}">
 
                 <tr>
                     <td>${product.carportId}</td>
                     <td>${product.name}</td>
-                    <td>${product.quantity}</td>
+                   
                     <td>${product.price}</td>
                     <td><button class="btn btn-outline-danger btn-sm" type="submit" name="delete" value="${status.index}">
                         delete</button>
@@ -35,7 +35,7 @@
             </c:forEach>
         </table>
 
-        <p>Total pris:  ${sessionScope.basket.totalPrice()} Kr</p>
+        <p>Total pris:  ${sessionScope.basket.totalPrice} Kr</p>
 
         <br/>
         <br/>
@@ -44,7 +44,7 @@
 
         <div>
 
-        <a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/fc/standardcarport" >Shop more</a>
+        <a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/fc/standartcarport" >Shop more</a>
 
     </jsp:body>
 
