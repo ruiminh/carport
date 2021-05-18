@@ -33,10 +33,10 @@ public class Measurement {
         }
         return shedLengths;
     }
-    public List<Integer> getShedWidths() {
+    public static List<Integer> getShedWidths() {
         int n = 210;
         while (n<721) {
-            carportLengths.add(n);
+            shedWidths.add(n);
             n+=30;
         }
         return shedWidths;

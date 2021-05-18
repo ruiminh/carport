@@ -30,7 +30,7 @@ public class RegisterCommand extends CommandUnprotectedPage
         String email = request.getParameter("email");
         String name= request.getParameter("name");
         String adress = request.getParameter("adress");
-        String city = request.getParameter("by");
+        String city = request.getParameter("city");
         String phone = request.getParameter("phone");
         String password1 = request.getParameter("password1");
         String password2 = request.getParameter("password2");
