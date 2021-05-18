@@ -18,7 +18,7 @@ public class UserMapper
     {
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO users (email, password, role,name,Adress,`By`,Phone) VALUES (?, ?, ?,?,?,?,?)";
+            String sql = "INSERT INTO users (email, password, role,name,Adress,City,Phone) VALUES (?, ?, ?,?,?,?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
