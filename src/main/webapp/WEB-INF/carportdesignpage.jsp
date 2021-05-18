@@ -47,7 +47,7 @@
 
 
 
-                    <c:if test="${withshed==1}">
+
 
                     <c:if test="withshed==1ou">
 
@@ -56,7 +56,7 @@
 
                         <div>
 
-                                <p>Her kan du skrive en commend</p>
+                                <p>Her kan du skrive en kommentar</p>
 
                                 <textarea id="commend" name="commend" rows="4" cols="50">
 
