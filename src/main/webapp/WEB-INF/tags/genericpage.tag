@@ -37,6 +37,11 @@
         <a class="p-2 text-dark" href="#">Profil</a>
         <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/linkBasket">Indkøbskurv</a>
         <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/standartcarport">Carporte</a>
+        <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/carportdesignpage">Design selv carporte</a>
+
+
+
+
     </nav>
 
     <div>
@@ -55,6 +60,8 @@
                 href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
             </c:if>
             <c:if test="${sessionScope.user == null }">
+
+
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
                    href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
                 <a type="button" class="btn btn-sm  btn-outline-secondary"
