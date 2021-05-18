@@ -21,6 +21,7 @@
                 Main page for this 2. semester start project used at cphbusiness.dk
 
                 <p><a href="${pageContext.request.contextPath}/fc/carportdesignpage">here design your own carport</a></p>
+                <p><a href="${pageContext.request.contextPath}/fc/showsvg">here you can see svg drawing</a></p>
             </div>
 
             <c:if test="${sessionScope.role == 'employee' }">

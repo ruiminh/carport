@@ -45,7 +45,7 @@
                             <label class="form-check-label" for="no">no</label><br>
                         </div>
 
-                    <c:if test="${withshed==1}">
+                    <c:if test="withshed==1ou">
                         <p>hej hej:)</p>
                     </c:if>
 
