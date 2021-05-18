@@ -23,7 +23,7 @@
 
                
 
-        
+
                 <p><a href="${pageContext.request.contextPath}/fc/showsvg">here you can see svg drawing</a></p>
 
             </div>

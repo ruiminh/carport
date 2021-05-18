@@ -12,6 +12,10 @@
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
         You are now logged in.
+
+        <p><a href="${pageContext.request.contextPath}/fc/showsvg">here you can see svg drawing</a></p>
+
+
         Role: ${sessionScope.role}
     </jsp:body>
 
