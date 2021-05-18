@@ -46,7 +46,11 @@
                         </div>
 
 
+
                     <c:if test="${withshed==1}">
+
+                    <c:if test="withshed==1ou">
+
                         <p>hej hej:)</p>
                     </c:if>
 
