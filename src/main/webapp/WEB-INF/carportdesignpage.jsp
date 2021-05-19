@@ -16,7 +16,7 @@
 
                 <form name="Measures" action="${pageContext.request.contextPath}/fc/showBasket"  method="POST">
 
-                        <label for="carportlength">Carport Længde</label>
+                        <%--@declare id="withshed"--%><label for="carportlength">Carport Længde</label>
                         <select class="form-select form-select-sm mb-3"  aria-label="carportlength" name="carportlength" id="carportlength">
                             <option selected>Vælg længde</option>
                             <c:forEach var="carportlength" items="${applicationScope.carportLengthList}">
@@ -36,7 +36,20 @@
                             <option selected>vælg togpladser</option>
                         </select>
 
-                    <label for="carportlength">Carport Længde</label>
+
+                            <p>Med redskabsrum?</p>
+                            <div class="form-check form=check-online">
+                                <input class="form-check-input" type="radio" id="yes" name="withshed" value="1">
+                                <label class="form-check-label" for="yes">Ja</label>
+                            </div>
+                            <div class="form-check form=check-online">
+                                <input class="form-check-input" type="radio" id="no" name="withshed" value="0">
+                                <label class="form-check-label" for="no">no</label><br>
+                            </div>
+
+
+
+                    <label for="shedlength">Skur Længde</label>
                     <select class="form-select form-select-sm mb-3"  aria-label="shedlength" name="shedlength" id="shedlength">
                         <option selected>Vælg længde</option>
                         <c:forEach var="shedlength" items="${applicationScope.shedLenghtList}">
@@ -44,8 +57,8 @@
                         </c:forEach>
                     </select>
 
-                    <label for="carportlength">Carport bredde</label>
-                    <select class="form-select form-select-sm mb-3"  aria-label="shedlength" name="shedlength" id="shedlength">
+                    <label for="shedwidth">Skur bredde</label>
+                    <select class="form-select form-select-sm mb-3"  aria-label="shedwidth" name="shedwidth" id="shedwidth">
                         <option selected>Vælg længde</option>
                         <c:forEach var="shedwidth" items="${applicationScope.shedWidthList}">
                             <option value="${shedwidth}">${shedwidth}</option>
