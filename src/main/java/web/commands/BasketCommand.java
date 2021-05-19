@@ -34,11 +34,6 @@ public class BasketCommand extends CommandUnprotectedPage {
 
 
         
-
-
-
-
-
         List<Product> cartList =(List<Product>)request.getServletContext().getAttribute("cartList");
 
 

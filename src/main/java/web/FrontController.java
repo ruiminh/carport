@@ -48,6 +48,8 @@ public class FrontController extends HttpServlet
 
         getServletContext().setAttribute("carportLengthList", Measurement.getCarportLengths());
         getServletContext().setAttribute("carportWidthList",Measurement.getCarportWidths());
+        getServletContext().setAttribute("shedLenghtList",Measurement.getShedLengthsLengths());
+        getServletContext().setAttribute("shedWidthList",Measurement.getShedWidths());
         getServletContext().setAttribute("cartList",basket.getCartList());
 
 
