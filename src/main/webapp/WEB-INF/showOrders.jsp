@@ -4,7 +4,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-        Kunde ordre 
+        Kunde ordre
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
