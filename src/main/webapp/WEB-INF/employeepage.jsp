@@ -12,7 +12,7 @@
         <h1>Hello ${sessionScope.email} </h1>
         Medarbejderside du har følgende valgmuligheder:
 
-        <p><a href="${pageContext.request.contextPath}/fc/orderpage">Se bestillinger</a></p>
+        <p><a href="${pageContext.request.contextPath}/fc/showOrders">Se bestillinger</a></p>
 
     </jsp:body>
 </t:genericpage>

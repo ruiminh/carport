@@ -26,7 +26,7 @@ public class ShowSVGCommand extends CommandUnprotectedPage {
 
         SVG svg = new SVG(0,0,viewBox,100,100);
 
-        SVG svgInner = new SVG(75,10,viewBoxInner,100,100);
+        SVG svgInner = new SVG(75,10,viewBoxInner,91,91);
 
         svgInner.addRect(0.0,0.0,carportWidth,carportLength);
         svgInner.addRect(0.0,0.0,carportWidth,4.5);

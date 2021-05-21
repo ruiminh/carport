@@ -5,8 +5,8 @@ public class Order {
     private int orderId;
     private int customerId;
     private int employeeId;
-    private int length;
-    private int width;
+    private int carportlength;
+    private int carportwidth;
     private int incline;
     private int rooftileType;
     private int withShed;
@@ -21,28 +21,12 @@ public class Order {
     private boolean isAccepted;
     private boolean isDelivered;
 
-    public Order() {
-
-    }
-
-    public Order(int length, int width, int incline, int shedLenght, int shedHight, int shedWidth, int shedWalltype, int shedFloorType, double price) {
-        this.length = length;
-        this.width = width;
-        this.incline = incline;
+    public Order(int carportlength, int carportwidth, int rooftileType, int shedLenght, int shedWidth) {
+        this.carportlength = carportlength;
+        this.carportwidth = carportwidth;
+        this.rooftileType = rooftileType;
         this.shedLenght = shedLenght;
-        this.shedHight = shedHight;
         this.shedWidth = shedWidth;
-        this.shedWalltype = shedWalltype;
-        this.shedFloorType = shedFloorType;
-        this.price = price;
-    }
-
-    public Order(int customerId, int quantity, double price) {
-
-        this.customerId = customerId;
-        this.quantity = quantity;
-        this.price = price;
-
     }
 
     public int getOrderId() {
@@ -57,12 +41,12 @@ public class Order {
         return employeeId;
     }
 
-    public int getLength() {
-        return length;
+    public int getCarportlength() {
+        return carportlength;
     }
 
-    public int getWidth() {
-        return width;
+    public int getCarportwidth() {
+        return carportwidth;
     }
 
     public int getIncline() {
