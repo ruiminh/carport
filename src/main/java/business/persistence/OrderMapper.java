@@ -58,4 +58,9 @@ public class OrderMapper {
             
         }
     }
+
+    public List<Integer> getOrderId() {
+
+        return null;
+    }
 }

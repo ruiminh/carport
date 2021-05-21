@@ -4,12 +4,27 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         All orders
+        Kunde ordre 
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
-        
+
+        <div class="d-flex flex-row mt-5">
+            <div class="margintop ">
+                    <div class="d-flex flex-column infobox">
+                        <p>Medarbejderoplysninger</p>
+                        <p class="mb-0">Medarbejdernr: ${user.id}</p>
+                        <p class="mb-0">Personalemail: ${user.email}</p>
+                    </div>
+
+            </div>
+
+
+
+
+
+
 
 
     </jsp:body>

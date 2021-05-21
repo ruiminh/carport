@@ -1,10 +1,12 @@
 package web.commands;
 
 import business.entities.User;
+import business.exceptions.UserException;
 import business.persistence.OrderMapper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.List;
 
 public class AllOrderCommand extends CommandProtectedPage {
@@ -15,19 +17,13 @@ public class AllOrderCommand extends CommandProtectedPage {
         super(pageToShow, role);
     }
 
+
+
     @Override
-    public String execute (HttpServletRequest request, HttpServletResponse response){
-
-        User user = (User) request.getSession().getAttribute("customer");
-
-        List<Integer> id = orderMapper.getOrderId();
-
-
-        return null;
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException, SQLException {
+        request.setAttribute("orderList", orderMapper.getAllOrders());
+        return pageToShow;
     }
-
-
-
 
 
 

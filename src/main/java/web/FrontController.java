@@ -4,11 +4,13 @@ import business.entities.Basket;
 import business.entities.Measurement;
 import business.exceptions.UserException;
 import business.persistence.Database;
+import business.persistence.OrderMapper;
 import business.persistence.ProductMapper;
 import web.commands.*;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -21,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet
 {
     private final static String USER = "root";
-    private final static String PASSWORD = "Slowny";
+    private final static String PASSWORD = "1234";
     private final static String URL = "jdbc:mysql://localhost:3306/carport?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
     public static Database database;
@@ -42,7 +44,7 @@ public class FrontController extends HttpServlet
         }
 
         // Initialize whatever global datastructures needed here:
-
+        OrderMapper orderMapper = new OrderMapper(database);
         ProductMapper productMapper = new ProductMapper(database);
         Basket basket = new Basket();
 
@@ -51,9 +53,11 @@ public class FrontController extends HttpServlet
         getServletContext().setAttribute("shedLenghtList",Measurement.getShedLengthsLengths());
         getServletContext().setAttribute("shedWidthList",Measurement.getShedWidths());
         getServletContext().setAttribute("cartList",basket.getCartList());
-
-
-
+        try {
+            getServletContext().setAttribute("orderList",orderMapper.getAllOrders());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
 
         try {
@@ -93,7 +97,7 @@ public class FrontController extends HttpServlet
 
             request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
         }
-        catch (UnsupportedEncodingException | UserException ex)
+        catch (UnsupportedEncodingException | UserException | SQLException ex)
         {
             request.setAttribute("problem", ex.getMessage());
             Logger.getLogger("web").log(Level.SEVERE, ex.getMessage(), ex);
