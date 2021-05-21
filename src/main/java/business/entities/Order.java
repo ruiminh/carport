@@ -29,6 +29,23 @@ public class Order {
         this.shedWidth = shedWidth;
     }
 
+    public Order(int orderId, int customerId, int employeeId, int carportlength, int carportwidth, int withShed, int shedlenght, int shedHight, double price, boolean isAccepted) {
+
+        this.orderId = orderId;
+        this.customerId = customerId;
+        this.employeeId= employeeId;
+        this.carportlength= carportlength;
+        this.carportwidth = carportwidth;
+        this.withShed = withShed;
+        this.shedLenght = shedlenght;
+        this.shedHight = shedHight;
+        this.price= price;
+        this.isAccepted= isAccepted;
+
+
+
+    }
+
     public int getOrderId() {
         return orderId;
     }
