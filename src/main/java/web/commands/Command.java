@@ -18,6 +18,8 @@ public abstract class Command
     private static HashMap<String, Command> commands;
     public static Database database;
 
+
+
     private static void initCommands(Database database)
     {
         commands = new HashMap<>();
@@ -35,6 +37,7 @@ public abstract class Command
         commands.put("carportdesignpage",new CommandUnprotectedPage("carportdesignpage"));
         commands.put("linkBasket", new CommandUnprotectedPage("showBasket"));
         commands.put("showsvg",new ShowSVGCommand("svgpage"));
+        commands.put("showOrder",new ShowOrderCommand("showOrder","employee"));
     }
 
     public static Command fromPath(

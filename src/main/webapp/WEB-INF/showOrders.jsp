@@ -24,23 +24,34 @@
 
 
         <table class="table table-striped">
-
+            <form name="showOrders" action="${pageContext.request.contextPath}/fc/showOrder"  method="POST">
             <thead><th>Bruger id</th><th>Bruger email</th><th>Ordre id</th><th>pris</th><th></th></thead>
-            <c:forEach var="userOrder" varStatus="status" items="${applicationScope.userOrderList}">
+
+                <c:forEach var="userOrder" varStatus="status" items="${applicationScope.userOrderList}">
 
                 <tr>
                     <td>${userOrder.id}</td>
                     <td>${userOrder.email}</td>
                     <td>${userOrder.idOrder}</td>
                     <td>${userOrder.price}</td>
-                    <td><button class="btn btn-outline-danger btn-sm" type="submit" name="edit" value="${status.index}">
+                    <td><button class="btn btn-outline-danger btn-sm" type="submit" >
                         vis</button>
 
+                        <label>
+                        <input type="hidden" name="idOrder" value="${userOrder.idOrder}" />
+                        </label>
+                    <tr/>
                     </td>
-                <tr/>
-            </c:forEach>
-        </table>
 
+            </c:forEach>
+
+
+
+
+
+            </form>
+
+        </table>
 
 
 
