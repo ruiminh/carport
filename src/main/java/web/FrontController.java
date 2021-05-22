@@ -48,6 +48,7 @@ public class FrontController extends HttpServlet
         ProductMapper productMapper = new ProductMapper(database);
         Basket basket = new Basket();
 
+
         getServletContext().setAttribute("carportLengthList", Measurement.getCarportLengths());
         getServletContext().setAttribute("carportWidthList",Measurement.getCarportWidths());
         getServletContext().setAttribute("shedLenghtList",Measurement.getShedLengthsLengths());

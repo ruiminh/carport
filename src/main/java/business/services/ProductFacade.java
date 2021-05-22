@@ -12,6 +12,7 @@ public class ProductFacade {
 
 
 
+
     public Product addProduct(String name,double price, int quantity) throws UserException {
 
         Product product = new Product(name,price,quantity);

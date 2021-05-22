@@ -17,7 +17,9 @@ public class AllOrderCommand extends CommandProtectedPage {
     OrderMapper orderMapper;
 
     public AllOrderCommand(String pageToShow, String role) {
+
         super(pageToShow, role);
+
     }
 
 

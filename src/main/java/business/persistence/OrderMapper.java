@@ -27,12 +27,12 @@ public class OrderMapper {
             String sql = "SELECT users.id, users.email, Orders.idOrder, Orders.price\n" +
                     "FROM users\n" +
                     "JOIN Orders ON users.id=Orders.idOrder\n" +
-                    "ORDER BY users.id;";
+                    "where users.id =?;";
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
                 List<Order> orderlist = new ArrayList<>();
                 ResultSet rs = ps.executeQuery();
-                while (rs.next()){
+                while (rs.next()) {
 
                     int orderId = rs.getInt("orderId");
                     int customerId = rs.getInt("customerId");
@@ -46,18 +46,15 @@ public class OrderMapper {
                     boolean isAccepted = rs.getBoolean("isaccepted");
 
 
-                    orderlist.add(new Order(orderId,customerId,employeeId,carportlength,carportwidth,withShed,shedlenght,shedHight,price,isAccepted));
-
-
+                    orderlist.add(new Order(orderId, customerId, employeeId, carportlength, carportwidth, withShed, shedlenght, shedHight, price, isAccepted));
 
 
                 }
-                   return orderlist;
+                return orderlist;
 
             }
 
 
-            
         }
     }
 
@@ -81,7 +78,7 @@ public class OrderMapper {
                     int idOrder = rs.getInt("idOrder");
                     double price = rs.getDouble("price");
 
-                    userOrderList.add(new UserOrder(id,email,idOrder,price));
+                    userOrderList.add(new UserOrder(id, email, idOrder, price));
 
                 }
             }
@@ -90,18 +87,28 @@ public class OrderMapper {
         return userOrderList;
     }
 
-    public int getOrderId(int orderId){
+    public int getOrderId(int idOrder) throws SQLException {
 
 
+        try (Connection connection = database.connect()) {
+
+            String sql = "SELECT * FROM orders WHERE idOrder = ?;";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+
+                    int id = rs.getInt("id");
 
 
+                }
 
 
+                return idOrder;
+            }
 
 
-        return orderId;
+        }
     }
-
-
-
-    }
+}

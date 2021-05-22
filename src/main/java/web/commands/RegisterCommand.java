@@ -16,7 +16,7 @@ public class RegisterCommand extends CommandUnprotectedPage
     public RegisterCommand(String pageToShow)
     {
         super(pageToShow);
-        userFacade = new UserFacade(database);
+       userFacade = new UserFacade(database);
     }
 
     public RegisterCommand(String pageToShow, UserFacade userFacade) {

@@ -10,9 +10,8 @@ div>
 
         <tr>
             <td>${requestScope.idOrder}</td>
-            <td>${requestScope.}</td>
-            <td>${product.idOrder}</td>
-            <td>${product.price}</td>
+            <td>${requestScope.idOrder}</td>
+
             <td><button class="btn btn-outline-danger btn-sm" type="submit" name="delete" value="${status.index}">
                 delete</button>
 
