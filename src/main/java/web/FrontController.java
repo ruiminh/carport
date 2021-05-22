@@ -54,7 +54,7 @@ public class FrontController extends HttpServlet
         getServletContext().setAttribute("shedWidthList",Measurement.getShedWidths());
         getServletContext().setAttribute("cartList",basket.getCartList());
         try {
-            getServletContext().setAttribute("orderList",orderMapper.getAllOrders());
+            getServletContext().setAttribute("userOrderList",orderMapper.getUserOrder());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

@@ -1,6 +1,8 @@
 package business.persistence;
 
 import business.entities.Order;
+import business.entities.Product;
+import business.entities.UserOrder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -59,8 +61,32 @@ public class OrderMapper {
         }
     }
 
-    public List<Integer> getOrderId() {
+    public List<UserOrder> getUserOrder() throws SQLException {
 
-        return null;
+        List<UserOrder> userOrderList = new ArrayList<>();
+
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT users.id, users.email, Orders.idOrder, Orders.price\n" +
+                    "FROM users\n" +
+                    "JOIN Orders ON users.id=Orders.idOrder\n" +
+                    "ORDER BY users.id;";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+
+                    int id = rs.getInt("id");
+                    String email = rs.getString("email");
+                    int idOrder = rs.getInt("idOrder");
+                    double price = rs.getDouble("price");
+
+                    userOrderList.add(new UserOrder(id,email,idOrder,price));
+
+                }
+            }
+        }
+
+        return userOrderList;
     }
-}
+    }

@@ -7,6 +7,7 @@ public class Basket {
 
 
 private static final List<Product> cartList = new ArrayList<>();
+
     private int orderId;
 
     public Basket() {
@@ -17,6 +18,8 @@ private static final List<Product> cartList = new ArrayList<>();
         return cartList;
     }
 
+
+
     public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
@@ -26,6 +29,8 @@ private static final List<Product> cartList = new ArrayList<>();
     }
 
     public void addToCart(Product product){ cartList.add(product); }
+
+
 
     public double getTotalPrice()
     {
