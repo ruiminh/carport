@@ -34,11 +34,11 @@
                     <td>${userOrder.email}</td>
                     <td>${userOrder.idOrder}</td>
                     <td>${userOrder.price}</td>
-                    <td><button class="btn btn-outline-danger btn-sm" type="submit" >
+                    <td><button class="btn btn-outline-danger btn-sm" type="submit"  >
                         vis</button>
 
                         <label>
-                        <input type="hidden" name="idOrder" value="${userOrder.idOrder}" />
+                        <input type="hidden" name="idOrder" value="${userOrder.id}" />
                         </label>
                     <tr/>
                     </td>

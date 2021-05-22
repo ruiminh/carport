@@ -99,7 +99,7 @@ public class OrderMapper {
 
                 while (rs.next()) {
 
-                    int id = rs.getInt("id");
+                    idOrder = rs.getInt("idOrder");
 
 
                 }

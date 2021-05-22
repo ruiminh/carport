@@ -25,9 +25,9 @@ public class ShowOrderCommand extends CommandProtectedPage {
 
 
         int idOrder = Integer.parseInt(request.getParameter("idOrder"));
-
-        request.setAttribute("idOrder",idOrder);
         orderFacade.getOrderId(idOrder);
+        request.setAttribute("idOrder",idOrder);
+
 
 
 
