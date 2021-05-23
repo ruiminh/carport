@@ -9,16 +9,16 @@
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        <c:set var="addHomeLink" value="${false}" scope="request"/>
+        <c:set var="addHomeLink" value="${true}" scope="request"/>
     </jsp:attribute>
 
     <jsp:body>
 
-        <div>
 
-            <form action="${pageContext.request.contextPath}/fc/showOrders">
 
-                <input type="hidden" name="idOrder" value="${requestScope.orderitem.idOrder}">
+            <form action="${pageContext.request.contextPath}/fc/showOrders" method="post">
+
+                <input type="hidden" name="idOrder" id="idOrder" value="${requestScope.orderItem.idOrder}">
 
                 <table>
 
@@ -27,8 +27,9 @@
                     <tr>
 
                         <td>
-                            <input type="text" value="${requestScope.orderitem.price}"/>
-                        <td><button type="submit" name="update">Rediger</button>
+
+                            <input type="text"  name="price" id="price" value="${requestScope.orderItem.price}"/>
+                        <td><button type="submit" name="update" >Rediger</button>
                         </td>
 
 
@@ -44,7 +45,7 @@
 
 
 
-        </div>
+
 
     </jsp:body>
 </t:genericpage>

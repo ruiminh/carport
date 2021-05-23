@@ -18,7 +18,29 @@ public class OrderMapper {
         this.database = database;
     }
 
+    public int updateOrder(int idOrder, double price) throws SQLException, UserException {
 
+
+        try (Connection connection = database.connect()) {
+
+            String sql = "UPDATE orders SET Price =? WHERE idOrder = ?;";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ps.setDouble(1, price);
+                ps.setInt(2, idOrder);
+                int rowsInserted = ps.executeUpdate();
+                return rowsInserted;
+
+            }
+            catch (SQLException ex)
+            {
+            throw new UserException("connection not established ");
+        }
+
+
+        }
+    }
 
     public List<Order> getAllOrders() throws SQLException {
 
@@ -119,6 +141,26 @@ public class OrderMapper {
         }
         return null;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int DBCreateOrder(int customerId, int length, int width, int incline, int roofTileType, int withShed, int shedLength, int shedWidth, int shedWallType, int shedFloorType, String comments) throws SQLException, UserException {
         int tempOrderId = 1;
 

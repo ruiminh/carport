@@ -6,6 +6,7 @@ import business.exceptions.UserException;
 import business.persistence.Database;
 import business.persistence.OrderMapper;
 import business.persistence.ProductMapper;
+import business.services.OrderFacade;
 import web.commands.*;
 
 import java.io.IOException;
@@ -46,6 +47,7 @@ public class FrontController extends HttpServlet
         // Initialize whatever global datastructures needed here:
         OrderMapper orderMapper = new OrderMapper(database);
         ProductMapper productMapper = new ProductMapper(database);
+        OrderFacade orderFacade = new OrderFacade(database);
         Basket basket = new Basket();
 
 
@@ -55,7 +57,7 @@ public class FrontController extends HttpServlet
         getServletContext().setAttribute("shedWidthList",Measurement.getShedWidths());
         getServletContext().setAttribute("cartList",basket.getCartList());
         try {
-            getServletContext().setAttribute("userOrderList",orderMapper.getUserOrder());
+            getServletContext().setAttribute("userOrderList",orderFacade.getuserOrder());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
