@@ -2,9 +2,11 @@ package web.commands;
 
 import business.entities.Calculator;
 import business.entities.Order;
+import business.exceptions.UserException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 
 public class CreateOrderCommand extends CommandProtectedPage {
 
@@ -14,7 +16,7 @@ public class CreateOrderCommand extends CommandProtectedPage {
     }
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response){
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException, UserException {
 
         int carportlenght = Integer.parseInt(request.getParameter("carportlenght"));
         int carportwidth = Integer.parseInt(request.getParameter("carportwidth"));

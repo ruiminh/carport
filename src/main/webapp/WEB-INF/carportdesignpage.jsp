@@ -33,7 +33,7 @@
                         </select>
                         <label for="rooftype">Tag</label>
                         <select class="form-select form-select-sm mb-3"  aria-label="rooftype" name="rooftype" id="rooftype">
-                            <option selected>vælg togpladser</option>
+                            <option selected>vælg tagplader</option>
                         </select>
 
 

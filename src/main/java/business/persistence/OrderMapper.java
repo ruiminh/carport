@@ -132,6 +132,7 @@ public class OrderMapper {
                 ps.setInt(10, shedFloorType);
                 ps.setString(11, comments);
                 ps.executeUpdate();
+                ps.close();
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
                 tempOrderId = ids.getInt(1);
@@ -160,6 +161,8 @@ public class OrderMapper {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
                 ps.setInt(1, materialId);
+                ps.executeQuery();
+                ps.close();
 
                 ResultSet rs = ps.executeQuery();
 
@@ -170,40 +173,96 @@ public class OrderMapper {
 
                 }
 
-
-
-
-                }
+            }
 
 
         }
 
 
         return tempDBprice;
-
-        // sql statement: SELECT `Price per unit/measurement` from Materials WHERE idMaterial = "?";
     }
 
 
 
 
-    public void DBInsertToBOM(int orderId, int idMaterial, int length, int quantity, double price){
+    public void DBInsertToBOM(int orderId, int idMaterial, int length, int quantity, double price) throws UserException {
 
-        // sql statement: INSERT INTO BOM(`ìdOrder`,`idMaterial`,`length`,`quantity`,`price`) values (?,?,?,?,?)
+        try (Connection connection = database.connect())
+        {
+            String sql = "INSERT INTO BOM(`ìdOrder`,`idMaterial`,`length`,`quantity`,`price`) values (?,?,?,?,?);";
 
+            try (PreparedStatement ps = connection.prepareStatement(sql))
+            {
+                ps.setInt(1, orderId);
+                ps.setInt(2, idMaterial);
+                ps.setInt(3, length);
+                ps.setInt(4, quantity);
+                ps.setDouble(5, price);
+                ps.executeUpdate();
+                ps.close();
+                ResultSet ids = ps.getGeneratedKeys();
+                ids.next();
+
+            }
+            catch (SQLException ex)
+            {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
     }
 
 
-    public void dbInsertToBOMOther(int orderId, int idMaterial, int quantity, double price){
+    public void DBInsertToBOMOther(int orderId, int idMaterial, int quantity, double price){
 
-        // sql statement: INSERT INTO BOM(`ìdOrder`,`idMaterial`,`quantity`,`price`) values (?,?,?,?)
 
+        try (Connection connection = database.connect())
+        {
+            String sql = "INSERT INTO BOM(`ìdOrder`,`idMaterial`,`quantity`,`price`) values (?,?,?,?);";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql))
+            {
+                ps.setInt(1, orderId);
+                ps.setInt(2, idMaterial);
+                ps.setInt(3, quantity);
+                ps.setDouble(4, price);
+                ps.executeUpdate();
+                ps.close();
+                ResultSet ids = ps.getGeneratedKeys();
+                ids.next();
+
+            }
+            catch (SQLException ex)
+            {
+                throw new UserException(ex.getMessage());
+            }
+        }
+        catch (SQLException | UserException throwables)
+        {
+            throwables.printStackTrace();
+        }
 
     }
 
+    public void DBUpdatePrice(int orderId, double totalPrice) throws SQLException {
 
+    try (Connection connection = database.connect()) {
+        String sql = "UPDATE orders SET `price` = ? WHERE memberID = ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+            ps.setDouble(1, totalPrice);
+            ps.setInt(1, orderId);
+            ps.executeUpdate();
+            }
+        }
+    }
 }
+
+
+
+
 
 
 

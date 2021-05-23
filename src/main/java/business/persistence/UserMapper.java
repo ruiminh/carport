@@ -9,6 +9,7 @@ public class UserMapper
 {
     private Database database;
 
+
     public UserMapper(Database database)
     {
         this.database = database;
