@@ -17,6 +17,11 @@ public class ShowSVGCommand extends CommandUnprotectedPage {
 
         int a = 780; // todo: receive parameter of carport length.
         int b =600;   // todo: receive parameter of carport width.
+        boolean withShed = true;//todo: receive parameterf
+        int s1 =180;
+        int s2=500;
+        Double shedLength =Double.valueOf(s1);
+        Double shedWidth = Double.valueOf(s2);
         Double carportLength = Double.valueOf(a);
         Double carportWidth = Double.valueOf(b);
         int viewBoxWidth=a+75;
@@ -25,6 +30,7 @@ public class ShowSVGCommand extends CommandUnprotectedPage {
         String viewBoxInner="0 0 "+a+" "+b;
 
         SVG svg = new SVG(0,0,viewBox,100,100);
+        svg.addArrowMarkers();
 
         SVG svgInner = new SVG(75,10,viewBoxInner,91,91);
 
@@ -33,18 +39,33 @@ public class ShowSVGCommand extends CommandUnprotectedPage {
         svgInner.addRect(carportLength-4.5,0.0,carportWidth,4.5);
         svgInner.addRect(4.5,30.0,4.5,carportLength-(4.5*2));
         svgInner.addRect(4.5,b-30.0-4.5,4.5,carportLength-(4.5*2));
-        svgInner.addDashLine(50,30,600,570);
-        svgInner.addDashLine(50,570,600,30);
-        svgInner.addRect((carportLength-40)/3,27.4,9.7,9.7);
-        svgInner.addRect(2*(carportLength-40)/3,27.4,9.7,9.7);
-        svgInner.addRect((carportLength-40),27.4,9.7,9.7);
-        svgInner.addRect((carportLength-40)/3,carportWidth-34.5-2.7,9.7,9.7);
-        svgInner.addRect(2*(carportLength-40)/3,carportWidth-34.5-2.7,9.7,9.7);
-        svgInner.addRect((carportLength-40),carportWidth-34.5-2.7,9.7,9.7);
+        svgInner.addDashLine(50,30,a-180,b-30);
+        svgInner.addDashLine(50,b-30,a-180,30);
+        svgInner.addRect(100.0,27.4,9.7,9.7);
+        svgInner.addRect((carportLength-120)/2+100,27.4,9.7,9.7);
+        svgInner.addRect((carportLength-20),27.4,9.7,9.7);
+        svgInner.addRect(100.0,carportWidth-34.5-2.7,9.7,9.7);
+        svgInner.addRect((carportLength-120)/2+100,carportWidth-34.5-2.7,9.7,9.7);
+        svgInner.addRect((carportLength-20),carportWidth-34.5-2.7,9.7,9.7);
+        double l=4.5;
+        while(l<carportLength){
+            l+=50.5;
+            svgInner.addRect(l,0.0,carportWidth,4.5);
+        }
+        if(withShed){
+            svgInner.addRect(carportLength-20-shedLength,27.4,shedWidth,shedLength+9.7);
+            svgInner.addRect(carportLength-10.3-shedLength,37.1,shedWidth-19.4,shedLength-9.7);
+            svgInner.addRect(carportLength-20.0-shedLength,27.4,9.7,9.7);
+            svgInner.addRect(carportLength-20.0-shedLength,27.4+shedWidth-9.7,9.7,9.7);
+            svgInner.addRect(carportLength-20,27.4+shedWidth-9.7,9.7,9.7);
+            svgInner.addRect(carportLength-20.0-shedLength,27.4+shedWidth/2,9.7,9.7);
+            svgInner.addRect(carportLength-20.0,27.4+shedWidth/2,9.7,9.7);
+        }
+
 
 
         svg.addSVG(svgInner);
-        svg.addArrowMarkers();
+        //svg.addArrowMarkers();
         svg.addArrowLine(50,10,50,b+10);
         svg.addArrowLine(75,b+35,a+75,b+35);
         svg.addText(30,b/2,-90,b);
