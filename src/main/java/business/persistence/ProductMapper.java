@@ -11,7 +11,7 @@ import java.util.List;
 public class ProductMapper {
 
 
-    Database database;
+    private Database database;
 
     public ProductMapper(Database database){
 

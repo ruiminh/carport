@@ -117,4 +117,76 @@ public class Order {
     public boolean isDelivered() {
         return isDelivered;
     }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public void setCarportlength(int carportlength) {
+        this.carportlength = carportlength;
+    }
+
+    public void setCarportwidth(int carportwidth) {
+        this.carportwidth = carportwidth;
+    }
+
+    public void setIncline(int incline) {
+        this.incline = incline;
+    }
+
+    public void setRooftileType(int rooftileType) {
+        this.rooftileType = rooftileType;
+    }
+
+    public void setWithShed(int withShed) {
+        this.withShed = withShed;
+    }
+
+    public void setShedLenght(int shedLenght) {
+        this.shedLenght = shedLenght;
+    }
+
+    public void setShedHight(int shedHight) {
+        this.shedHight = shedHight;
+    }
+
+    public void setShedWidth(int shedWidth) {
+        this.shedWidth = shedWidth;
+    }
+
+    public void setShedWalltype(int shedWalltype) {
+        this.shedWalltype = shedWalltype;
+    }
+
+    public void setShedFloorType(int shedFloorType) {
+        this.shedFloorType = shedFloorType;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
+    }
+
+    public void setDelivered(boolean delivered) {
+        isDelivered = delivered;
+    }
 }

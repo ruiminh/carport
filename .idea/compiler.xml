@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="carport" options="-endorseddirs C:\Users\nicho\OneDrive\Dokumenter\GitHub\carport\target/endorsed" />
+      <module name="carport" options="-endorseddirs C:\Users\Ole\Desktop\Datamatiker\SP5eksamens\carport\target/endorsed" />
     </option>
   </component>
 </project>
