@@ -1,5 +1,6 @@
 package business.services;
 
+import business.entities.UserOrder;
 import business.persistence.Database;
 import business.persistence.OrderMapper;
 
@@ -15,7 +16,7 @@ public OrderFacade(Database database)
     }
 
 
-    public int getOrderId(int idOrder) throws SQLException {
+    public UserOrder getOrderId(int idOrder) throws SQLException {
     return orderMapper.getOrderId(idOrder);
     }
 }

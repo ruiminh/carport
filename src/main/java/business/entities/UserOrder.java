@@ -15,6 +15,13 @@ public class UserOrder {
         this.price = price;
     }
 
+    public UserOrder(int id, double price) {
+
+        this.id = id;
+        this.price = price;
+
+    }
+
     public int getId() {
         return id;
     }

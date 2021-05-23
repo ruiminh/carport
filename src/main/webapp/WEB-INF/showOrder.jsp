@@ -1,32 +1,50 @@
-div>
-<h3>Du har valgt følgende carporte:</h3>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<br/>
+<t:genericpage>
 
-<table class="table table-striped">
+    <jsp:attribute name="header">
+         Home
+    </jsp:attribute>
 
-    <thead><th>carportId</th><th>navn</th>><th>pris</th><th></th></thead>
+    <jsp:attribute name="footer">
+        <c:set var="addHomeLink" value="${false}" scope="request"/>
+    </jsp:attribute>
+
+    <jsp:body>
+
+        <div>
+
+            <form action="${pageContext.request.contextPath}/fc/showOrders">
+
+                <input type="hidden" name="idOrder" value="${requestScope.orderitem.idOrder}">
+
+                <table>
+
+                        <thead> <th>Pris</th></thead>
+
+                    <tr>
+
+                        <td>
+                            <input type="text" value="${requestScope.orderitem.price}"/>
+                        <td><button type="submit" name="update">Rediger</button>
+                        </td>
 
 
-        <tr>
-            <td>${requestScope.idOrder}</td>
-            <td>${requestScope.idOrder}</td>
+                    </tr>
 
-            <td><button class="btn btn-outline-danger btn-sm" type="submit" name="delete" value="${status.index}">
-                delete</button>
+                </table>
 
-            </td>
-        <tr/>
 
-</table>
+            </form>
 
 
 
-<br/>
-<br/>
 
-<div/>
 
-<div>
 
-    <a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/fc/standartcarport" >Shop more</a>
+        </div>
+
+    </jsp:body>
+</t:genericpage>

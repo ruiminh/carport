@@ -1,5 +1,7 @@
 package web.commands;
 
+import business.entities.Basket;
+import business.entities.Product;
 import business.entities.UserOrder;
 import business.exceptions.UserException;
 import business.persistence.OrderMapper;
@@ -25,13 +27,15 @@ public class ShowOrderCommand extends CommandProtectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException, SQLException {
 
-
-        int idOrder = Integer.parseInt(request.getParameter("idOrder"));
-        orderFacade.getOrderId(idOrder);
-        request.setAttribute("idOrder",idOrder);
+        String editId = request.getParameter("edit");
 
 
+        if (editId != null){
 
+            request.setAttribute("orderitem",orderFacade.getOrderId(Integer.parseInt(editId)));
+
+            return "showOrder";
+        }
 
 
         return pageToShow;

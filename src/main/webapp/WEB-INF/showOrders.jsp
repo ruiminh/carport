@@ -34,12 +34,22 @@
                     <td>${userOrder.email}</td>
                     <td>${userOrder.idOrder}</td>
                     <td>${userOrder.price}</td>
-                    <td><button class="btn btn-outline-danger btn-sm" type="submit"  >
-                        vis</button>
+                    <td><button class="btn btn-outline-danger btn-sm" type="submit" name="edit" value="${userOrder.idOrder}"  >
+                        Rediger</button>
 
                         <label>
-                        <input type="hidden" name="idOrder" value="${userOrder.id}" />
+                        <input type="hidden" name="id" value="${userOrder.id}" />
                         </label>
+                        <label>
+                            <input type="hidden" name="email" value="${userOrder.email}" />
+                        </label>
+                        <label>
+                            <input type="hidden" name="idOrder" value="${userOrder.idOrder}" />
+                        </label>
+                        <label>
+                            <input type="hidden" name="price" value="${userOrder.price}" />
+                        </label>
+
                     <tr/>
                     </td>
 
