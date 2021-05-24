@@ -52,7 +52,7 @@ public class ShowOrderCommand extends CommandUnprotectedPage {
 
 
            int rowsInserted = orderFacade.updateOrder(Integer.parseInt(idOrder),Double.parseDouble(price));
-            
+
            if(rowsInserted==1){
                request.getServletContext().setAttribute("userOrderList",orderFacade.getuserOrder());
 
