@@ -9,9 +9,11 @@ import business.services.OrderFacade;
 import business.services.UserFacade;
 import com.sun.org.apache.xerces.internal.impl.io.Latin1Reader;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -53,6 +55,8 @@ public class ShowOrderCommand extends CommandUnprotectedPage {
 
            int rowsInserted = orderFacade.updateOrder(Integer.parseInt(idOrder),Double.parseDouble(price));
 
+
+
            if(rowsInserted==1){
                request.getServletContext().setAttribute("userOrderList",orderFacade.getuserOrder());
 
@@ -77,7 +81,6 @@ public class ShowOrderCommand extends CommandUnprotectedPage {
         }
         return null;
     }
-
 
 
 

@@ -39,4 +39,15 @@ public class UserOrder {
     public double getPrice() {
         return price;
     }
+
+
+    @Override
+    public String toString() {
+        return "UserOrder{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", idOrder=" + idOrder +
+                ", price=" + price +
+                '}';
+    }
 }

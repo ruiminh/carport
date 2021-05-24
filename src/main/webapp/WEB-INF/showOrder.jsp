@@ -18,8 +18,8 @@
 
             <form action="${pageContext.request.contextPath}/fc/showOrders" method="post">
 
-                <input type="hidden" name="idOrder" id="idOrder" value="${requestScope.orderItem.idOrder}">
-
+                <input type="hidden" class="form-control" name="idOrder" id="idOrder" value="${requestScope.orderItem.idOrder}">
+                <input type="hidden" class="form-control" name="id" id="id" value="${requestScope.orderItem.id}">
                 <table>
 
                         <thead> <th>Pris</th></thead>
@@ -28,7 +28,7 @@
 
                         <td>
 
-                            <input type="text"  name="price" id="price" value="${requestScope.orderItem.price}"/>
+                            <input type="text" class="form-control"  name="price" id="price" value="${requestScope.orderItem.price}"/>
                         <td><button type="submit" name="update" >Rediger</button>
                         </td>
 
@@ -37,8 +37,8 @@
 
                 </table>
 
-
             </form>
+
 
 
 

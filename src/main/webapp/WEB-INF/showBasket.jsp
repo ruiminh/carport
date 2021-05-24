@@ -44,7 +44,7 @@
 
         <div>
 
-        <a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/fc/standartcarport" >Shop more</a>
+        <a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/fc/standartcarport" >Køb mere</a>
 
     </jsp:body>
 
