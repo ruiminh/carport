@@ -244,7 +244,7 @@ public class OrderMapper {
 
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO BOM(`idOrder`,`idMaterial`,`length`,`quantity`,`price`) values (?,?,?,?,?);";
+            String sql = "INSERT INTO BOM(`idOrder`,`idMaterial`,`length`,`quantity`,`price`) values (?,?,?,?,ROUND(?,2));";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
@@ -274,7 +274,7 @@ public class OrderMapper {
 
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO BOM(`idOrder`,`idMaterial`,`quantity`,`price`) values (?,?,?,?);";
+            String sql = "INSERT INTO BOM(`idOrder`,`idMaterial`,`quantity`,`price`) values (?,?,?,ROUND(?,2));";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
@@ -302,7 +302,7 @@ public class OrderMapper {
     public void DBUpdatePrice(int orderId, double totalPrice) throws SQLException {
 
     try (Connection connection = database.connect()) {
-        String sql = "UPDATE orders SET `price` = ? WHERE idOrder = ?";
+        String sql = "UPDATE orders SET `price` = ROUND(?,2) WHERE idOrder = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             ps.setDouble(1, totalPrice);
