@@ -187,7 +187,8 @@ public class OrderMapper {
                     //System.out.println(ids);            testet, og det virker den sender det nye orderId tilbage i temporderId
 
                 double totalprice = calcCarportFlatRoof(tempOrderId,length,width,withShed,shedLength,shedWidth);
-//                System.out.println("totalprice "+totalprice);
+                System.out.println("totalprice "+totalprice);
+                DBUpdatePrice(tempOrderId,totalprice);
 
                 return tempOrderId;
 
@@ -451,7 +452,7 @@ public class OrderMapper {
         if (withShed == 1) {
             tempQuantity = 11;
         }
-        if (withShed == 1 && width > 330) {
+        if (withShed == 1 && width < 330) {
             tempQuantity = 9;
         }
         tempPrice = DBGetPrice(11);
@@ -591,13 +592,12 @@ public class OrderMapper {
 
         //23. material (montering af rem på stolper)                jeg sender 12, de sender 18 ?!?
 
+        tempQuantity = 8;
         if (length > 720) {
             tempQuantity = 20;
         }
         if (length > 550 && length <= 720) {
             tempQuantity = 12;
-        } else {
-            tempQuantity = 8;
         }
         tempPrice = DBGetPrice(23);
         tempPrice = tempPrice * tempQuantity;

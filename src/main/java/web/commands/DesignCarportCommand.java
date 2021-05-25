@@ -32,17 +32,34 @@ public class DesignCarportCommand extends CommandUnprotectedPage
         int carportWithShed = Integer.parseInt(tempo);
         System.out.println(carportWithShed);
 
-        tempo = request.getParameter("shedlength");
-        int shedlength = Integer.parseInt(tempo);
-        System.out.println(shedlength);
+//        tempo = request.getParameter("carportRoofType");              returns null, should be replaced with a lookup in database for rooftype later, but we are way behind. - hardcoding value 1 as we only have 1 type of roof at the moment.
+//        int carportRoofType = Integer.parseInt(tempo);
+//        System.out.println(carportRoofType);
+        int carportRoofType = 1;
 
-        tempo = request.getParameter("shedwidth");
-        int shedwidth = Integer.parseInt(tempo);
-        System.out.println(shedwidth);
 
-        tempo = request.getParameter("carportRoofType");
-        int carportRoofType = Integer.parseInt(tempo);
-        System.out.println(carportRoofType);
+        if(carportWithShed == 1){                                   //there must be a better way, but this solves the input crisis if people dont want a shed, and dont select anything in shedlength and shedwidth.
+            tempo = request.getParameter("shedlength");
+            int shedlength = Integer.parseInt(tempo);
+            System.out.println(shedlength);
+
+            tempo = request.getParameter("shedwidth");
+            int shedwidth = Integer.parseInt(tempo);
+            System.out.println(shedwidth);
+            orderFacade.createOrder(10001,carportLength,carportWidth,0,carportRoofType,carportWithShed,shedlength,shedwidth,0,0,"0");
+        }
+        if(carportWithShed == 0){
+            int shedlength = 0;
+            int shedwidth = 0;
+            orderFacade.createOrder(10001,carportLength,carportWidth,0,carportRoofType,carportWithShed,shedlength,shedwidth,0,0,"0");
+        }
+
+
+
+//
+
+
+
 
 
 
@@ -52,7 +69,7 @@ public class DesignCarportCommand extends CommandUnprotectedPage
 //            shedwidth = request.getIntHeader("shedwidth");
 //        }
 
-        orderFacade.createOrder(10001,carportLength,carportWidth,0,carportRoofType,carportWithShed,shedlength,shedwidth,0,0,"0");
+
 
         return "carportDesigned";
 

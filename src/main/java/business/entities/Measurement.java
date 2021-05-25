@@ -11,7 +11,7 @@ public class Measurement {
 
     public static List<Integer> getCarportLengths() {
         int n = 240;
-        while (n<721) {
+        while (n<781) {
             carportLengths.add(n);
             n+=30;
         }
@@ -27,7 +27,7 @@ public class Measurement {
     }
     public static List<Integer> getShedLengthsLengths() {
         int n = 150;
-        while (n<691) {
+        while (n<781) {
             shedLengths.add(n);
             n+=30;
         }
