@@ -23,14 +23,15 @@
                                 <option value="${carportlength}">${carportlength}</option>
                             </c:forEach>
                         </select>
-                        <label for="carportlength">Carport Bredde</label>
 
+                        <label for="carportlength">Carport Bredde</label>
                         <select class="form-select form-select-sm mb-3"  aria-label="carportwidth" name="carportwidth" id="carportwidth">
                             <option selected>Vælg Bredde</option>
                             <c:forEach var="carportwidth" items="${applicationScope.carportWidthList}">
                                 <option value="${carportwidth}">${carportwidth} </option>
                             </c:forEach>
                         </select>
+
                         <label for="rooftype">Tag</label>
                         <select class="form-select form-select-sm mb-3"  aria-label="rooftype" name="rooftype" id="rooftype">
                             <option selected>vælg tagplader</option>

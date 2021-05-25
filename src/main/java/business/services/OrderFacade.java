@@ -29,7 +29,25 @@ public List<UserOrder> getuserOrder() throws SQLException {
     return orderMapper.updateOrder(idOrder,price);
     }
 
+    public void createOrder(int customerId, int length, int width, int incline, int roofTileType, int withShed, int shedLength, int shedWidth, int shedWallType, int shedFloorType, String comments) throws UserException, SQLException {
+        orderMapper.DBCreateOrder(customerId,length,width,incline,roofTileType,withShed,shedLength,shedWidth,shedWallType,shedFloorType,comments);
+    }
 
+    public double DBgetPrice(int materialId) throws SQLException {
+        return orderMapper.DBGetPrice(materialId);
+    }
+
+    public void insertIntoBOM(int orderId, int idMaterial, int length, int quantity, double price) throws UserException {
+        orderMapper.DBInsertToBOM(orderId, idMaterial, length, quantity, price);
+    }
+
+    public void insertIntoBOMOther(int orderId, int idMaterial, int quantity, double price) throws UserException {
+        orderMapper.DBInsertToBOMOther(orderId,idMaterial,quantity,price);
+    }
+
+    public void updatePrice(int orderId, double totalPrice) throws SQLException {
+        orderMapper.DBUpdatePrice(orderId,totalPrice);
+    }
 
 
 
