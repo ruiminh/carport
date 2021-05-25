@@ -14,7 +14,7 @@
 
         <div style="margin-top: 5em;" class="container">
 
-                <form name="Measures" action="${pageContext.request.contextPath}/fc/showBasket"  method="POST">
+                <form name="Measures" action="${pageContext.request.contextPath}/fc/carportDesigned"  method="POST">
 
                         <%--@declare id="withshed"--%><label for="carportlength">Carport Længde</label>
                         <select class="form-select form-select-sm mb-3"  aria-label="carportlength" name="carportlength" id="carportlength">
@@ -25,7 +25,7 @@
                         </select>
                         <label for="carportlength">Carport Bredde</label>
 
-                        <select class="form-select form-select-sm mb-3"  aria-label="carportlength" name="carportwidth" id="carportwidth">
+                        <select class="form-select form-select-sm mb-3"  aria-label="carportwidth" name="carportwidth" id="carportwidth">
                             <option selected>Vælg Bredde</option>
                             <c:forEach var="carportwidth" items="${applicationScope.carportWidthList}">
                                 <option value="${carportwidth}">${carportwidth} </option>
@@ -65,33 +65,7 @@
                         </c:forEach>
                     </select>
 
-
-
-
-
-
-
-
-
-
-
-
-
-                    <c:if test="withshed==1ou">
-
-                        <p>hej hej:)</p>
-                    </c:if>
-
-                        <div>
-
-                                <p>Her kan du skrive en kommentar</p>
-
-                                <textarea id="commend" name="commend" rows="4" cols="50">
-
-                                </textarea>
-                        </div>
-
-                    <button class="btn btn-primary" type="submit">læg i kurv</button>
+                        <input class="btn btn-primary" type="submit" type="submit" value="Submit">
                 </form>
         </div>
     </jsp:body>

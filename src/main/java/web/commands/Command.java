@@ -38,6 +38,7 @@ public abstract class Command
         commands.put("linkBasket", new CommandUnprotectedPage("showBasket"));
         commands.put("showsvg",new ShowSVGCommand("svgpage"));
         commands.put("showOrder",new ShowOrderCommand(""));
+        commands.put("carportDesigned",new DesignCarportCommand("carportDesigned"));
     }
 
     public static Command fromPath(
