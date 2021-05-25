@@ -15,6 +15,15 @@ public class UserOrder {
         this.price = price;
     }
 
+    public UserOrder(int id, double price) {
+
+        this.id = id;
+        this.price = price;
+
+    }
+
+
+
     public int getId() {
         return id;
     }
@@ -29,5 +38,16 @@ public class UserOrder {
 
     public double getPrice() {
         return price;
+    }
+
+
+    @Override
+    public String toString() {
+        return "UserOrder{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", idOrder=" + idOrder +
+                ", price=" + price +
+                '}';
     }
 }

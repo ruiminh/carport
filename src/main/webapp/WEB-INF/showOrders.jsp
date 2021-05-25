@@ -27,19 +27,29 @@
             <form name="showOrders" action="${pageContext.request.contextPath}/fc/showOrder"  method="POST">
             <thead><th>Bruger id</th><th>Bruger email</th><th>Ordre id</th><th>pris</th><th></th></thead>
 
-                <c:forEach var="userOrder" varStatus="status" items="${applicationScope.userOrderList}">
+                <c:forEach var="orderItem"  items="${applicationScope.userOrderList}">
 
                 <tr>
-                    <td>${userOrder.id}</td>
-                    <td>${userOrder.email}</td>
-                    <td>${userOrder.idOrder}</td>
-                    <td>${userOrder.price}</td>
-                    <td><button class="btn btn-outline-danger btn-sm" type="submit"  >
-                        vis</button>
+                    <td>${orderItem.id}</td>
+                    <td>${orderItem.email}</td>
+                    <td>${orderItem.idOrder}</td>
+                    <td>${orderItem.price}</td>
+                    <td><button class="btn btn-outline-danger btn-sm" type="submit" name="edit" value="${orderItem.idOrder}"  >
+                        Rediger</button>
 
                         <label>
-                        <input type="hidden" name="idOrder" value="${userOrder.id}" />
+                        <input type="hidden" name="id" value="${orderItem.id}" />
                         </label>
+                        <label>
+                            <input type="hidden" name="email" value="${orderItem.email}" />
+                        </label>
+                        <label>
+                            <input type="hidden" name="idOrder" value="${orderItem.idOrder}" />
+                        </label>
+                        <label>
+                            <input type="hidden" name="price" value="${orderItem.price}" />
+                        </label>
+
                     <tr/>
                     </td>
 

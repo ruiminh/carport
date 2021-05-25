@@ -18,7 +18,29 @@ public class OrderMapper {
         this.database = database;
     }
 
+    public int updateOrder(int idOrder, double price) throws SQLException, UserException {
 
+
+        try (Connection connection = database.connect()) {
+
+            String sql = "UPDATE orders SET Price =? WHERE idOrder = ?;";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ps.setDouble(1, price);
+                ps.setInt(2, idOrder);
+                int rowsInserted = ps.executeUpdate();
+                return rowsInserted;
+
+            }
+            catch (SQLException ex)
+            {
+            throw new UserException("connection not established ");
+        }
+
+
+        }
+    }
 
     public List<Order> getAllOrders() throws SQLException {
 
@@ -87,7 +109,7 @@ public class OrderMapper {
         return userOrderList;
     }
 
-    public int getOrderId(int idOrder) throws SQLException {
+    public UserOrder getOrderId(int idOrder) throws SQLException {
 
 
         try (Connection connection = database.connect()) {
@@ -95,22 +117,50 @@ public class OrderMapper {
             String sql = "SELECT * FROM orders WHERE idOrder = ?;";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+
+                ps.setInt(1, idOrder);
                 ResultSet rs = ps.executeQuery();
 
-                while (rs.next()) {
 
-                    idOrder = rs.getInt("idOrder");
+                if (rs.next()) {
 
+                    int id = rs.getInt("idOrder");
+                    double price = rs.getDouble("price");
 
+                    return new UserOrder(id, price);
                 }
+                throw new UserException("idorder findes ikke ");
 
 
-                return idOrder;
+            } catch (UserException e) {
+                e.printStackTrace();
             }
 
 
         }
+        return null;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int DBCreateOrder(int customerId, int length, int width, int incline, int roofTileType, int withShed, int shedLength, int shedWidth, int shedWallType, int shedFloorType, String comments) throws SQLException, UserException {
         int tempOrderId = 1;
 

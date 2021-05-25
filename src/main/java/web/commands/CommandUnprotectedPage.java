@@ -23,4 +23,3 @@ public class CommandUnprotectedPage extends Command
     }
 }
 
-
