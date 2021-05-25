@@ -10,6 +10,8 @@ import java.sql.SQLException;
 
 public class CreateOrderCommand extends CommandProtectedPage {
 
+    // I THINK WE CAN LOOSE THIS ENTIRE class?
+
 
     public CreateOrderCommand(String pageToShow, String role) {
         super(pageToShow, role);

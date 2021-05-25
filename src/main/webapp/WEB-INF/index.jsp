@@ -20,14 +20,10 @@
 
 
 
-
-
-
-
-
-
-                <p><a href="${pageContext.request.contextPath}/fc/carportdesignpage">here design your own carport</a></p>
-                <p><a href="${pageContext.request.contextPath}/fc/showsvg">here you can see svg drawing</a></p>
+            <c:if test="${sessionScope.customerId != null}">
+                <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/carportdesignpage">Design selv carporte</a>
+            </c:if>
+            <p><a href="${pageContext.request.contextPath}/fc/showsvg">here you can see svg drawing</a></p>
 
             </div>
 

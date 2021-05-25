@@ -17,6 +17,7 @@
 
 
         Role: ${sessionScope.role}
+        Customerid: ${sessionScope.customerId}
     </jsp:body>
 
 </t:genericpage>

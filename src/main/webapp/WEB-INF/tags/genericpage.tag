@@ -37,7 +37,9 @@
         <a class="p-2 text-dark" href="#">Profil</a>
         <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/linkBasket">Indkøbskurv</a>
         <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/standartcarport">Carporte</a>
-        <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/carportdesignpage">Design selv carporte</a>
+        <c:if test="${sessionScope.customerId != null}">
+            <a class="p-2 text-dark " href="${pageContext.request.contextPath}/fc/carportdesignpage">Design selv carporte</a>
+        </c:if>
 
 
 

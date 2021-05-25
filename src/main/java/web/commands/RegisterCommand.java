@@ -38,7 +38,7 @@ public class RegisterCommand extends CommandUnprotectedPage
         if (password1.equals(password2))
         {
             User user = userFacade.createUser(email, password1,name,adress,city,phone);
-            HttpSession session = request.getSession();
+            HttpSession session = request.getSession(false);
 
             session.setAttribute("email", email);
             session.setAttribute("name",name);
@@ -47,6 +47,8 @@ public class RegisterCommand extends CommandUnprotectedPage
             session.setAttribute("phone",phone);
             session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());
+            session.setAttribute("customerId", user.getId());
+
             return user.getRole() + "page";
         }
         else
