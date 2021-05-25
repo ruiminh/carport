@@ -15,24 +15,28 @@ public class ShowSVGCommand extends CommandUnprotectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
 
-        int a = 780; // todo: receive parameter of carport length.
-        int b =600;   // todo: receive parameter of carport width.
-        boolean withShed = true;//todo: receive parameterf
-        int s1 =180;
-        int s2=500;
-        Double shedLength =Double.valueOf(s1);
-        Double shedWidth = Double.valueOf(s2);
+        int a = 500; // todo: receive parameter of carport length.
+        int b = 500;   // todo: receive parameter of carport width.
         Double carportLength = Double.valueOf(a);
         Double carportWidth = Double.valueOf(b);
-        int viewBoxWidth=a+75;
-        int viewBoxHeight=b+90;
-        String viewBox ="0 0 "+viewBoxWidth+" "+viewBoxHeight;
+        boolean withShed = true;//todo: receive parameterf
+        int s1 =180;
+        int s2=200;
+        Double shedLength =Double.valueOf(s1);
+        Double shedWidth = Double.valueOf(s2);
+
+
+        String viewBox ="0 0 "+(a+75)+" "+(b+90);
         String viewBoxInner="0 0 "+a+" "+b;
 
         SVG svg = new SVG(0,0,viewBox,100,100);
         svg.addArrowMarkers();
+        svg.addArrowLine(50,10,50,b+10);
+        svg.addArrowLine(75,b+35,a+75,b+35);
+        svg.addText(30,b/2,-90,b);
+        svg.addText(75+a/2,b+65,0,a);
 
-        SVG svgInner = new SVG(75,10,viewBoxInner,91,91);
+        SVG svgInner = new SVG(75,10,viewBoxInner,100,100);
 
         svgInner.addRect(0.0,0.0,carportWidth,carportLength);
         svgInner.addRect(0.0,0.0,carportWidth,4.5);
@@ -62,10 +66,8 @@ public class ShowSVGCommand extends CommandUnprotectedPage {
             svgInner.addRect(carportLength-20.0,27.4+shedWidth/2,9.7,9.7);
         }
 
-
-
         svg.addSVG(svgInner);
-        //svg.addArrowMarkers();
+        svg.addArrowMarkers();
         svg.addArrowLine(50,10,50,b+10);
         svg.addArrowLine(75,b+35,a+75,b+35);
         svg.addText(30,b/2,-90,b);

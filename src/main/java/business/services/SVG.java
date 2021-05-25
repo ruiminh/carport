@@ -7,11 +7,11 @@ public class SVG {
     private String viewBox;
     private int width;
     private int height;
-    private final String headerTemplate = "<svg height=\"%s%%\" "+
-            "width=\"%s%%\" "+
+    private final String headerTemplate = "<svg height=\"%d%%\" "+
+            "width=\"%d%%\" "+
             "viewBox=\"%s\" "+
-            " x= \"%s\" "+
-            " y= \"%s\" "+
+            " x= \"%d\" "+
+            " y= \"%d\" "+
             " preserveAspectRatio=\"xMinYMin\">";
     private final String rectTemplate = " <rect x=\"%f\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: none\"/>";
     private final String arrowMarkers = "<defs>\n" +
@@ -49,7 +49,7 @@ public class SVG {
         svg.append(String.format(headerTemplate,height,width,viewBox,x,y));
     }
 
-    public void addRect(Double x, Double y, Double height, Double width){
+    public void addRect(double x, double y, double height, double width){
         svg.append(String.format(rectTemplate,x,y,height,width));
 
     };
@@ -61,7 +61,7 @@ public class SVG {
 
     }
     public void addArrowMarkers(){
-        svg.append(String.format(arrowMarkers));
+        svg.append(arrowMarkers);
     }
     public void addArrowLine(int x1, int y1, int x2, int y2){
         svg.append(String.format(arrowTemplate,x1,y1,x2,y2));
@@ -74,10 +74,8 @@ public class SVG {
         svg.append(String.format(dashLineTemplate,x1,y1,x2,y2));
     }
 
-
     @Override
     public String toString() {
-        return svg.toString()+ "</svg>";
+        return svg.toString()+"</svg>";
     }
-
 }
