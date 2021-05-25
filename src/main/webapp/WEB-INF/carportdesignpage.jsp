@@ -20,7 +20,7 @@
                         <select class="form-select form-select-sm mb-3"  aria-label="carportlength" name="carportlength" id="carportlength">
                             <option selected>Vælg længde</option>
                             <c:forEach var="carportlength" items="${applicationScope.carportLengthList}">
-                                <option value="${carportlength}">${carportlength}</option>
+                                <option><c:out value="${carportlength}"/></option>
                             </c:forEach>
                         </select>
 

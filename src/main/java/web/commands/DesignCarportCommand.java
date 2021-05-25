@@ -19,14 +19,33 @@ public class DesignCarportCommand extends CommandUnprotectedPage
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException, SQLException {
+        String tempo;
+        tempo = request.getParameter("carportlength");
+        int carportLength = Integer.parseInt(tempo);
+        System.out.println(carportLength);
+
+        tempo = request.getParameter("carportwidth");
+        int carportWidth = Integer.parseInt(tempo);
+        System.out.println(carportWidth);
+
+        tempo = request.getParameter("withshed");
+        int carportWithShed = Integer.parseInt(tempo);
+        System.out.println(carportWithShed);
+
+        tempo = request.getParameter("shedlength");
+        int shedlength = Integer.parseInt(tempo);
+        System.out.println(shedlength);
+
+        tempo = request.getParameter("shedwidth");
+        int shedwidth = Integer.parseInt(tempo);
+        System.out.println(shedwidth);
+
+        tempo = request.getParameter("carportRoofType");
+        int carportRoofType = Integer.parseInt(tempo);
+        System.out.println(carportRoofType);
 
 
-        int carportWidth = 600;
-        int carportLength = 720;
-        int carportRoofType = 1;
-        int carportWithShed = 1;
-        int shedlength = 240;
-        int shedwidth = 530;
+
         //int userId =   what to do
 //        if (carportWithShed == 1){
 //            shedlength = request.getIntHeader("shedlength");
