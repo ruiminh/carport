@@ -27,28 +27,28 @@ public class ConfirmCommand extends CommandUnprotectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException, SQLException {
 
 
-        int orderId = Integer.parseInt(request.getParameter("carportid"));
-        String name = request.getParameter("name");
-        double price = Double.parseDouble(request.getParameter("price"));
+        int standardCarportId;
+       String standardCarportName;
+       double price;
+
+       standardCarportId = Integer.parseInt(request.getParameter("carportid"));
+       standardCarportName = request.getParameter("name");
+       price = Double.parseDouble(request.getParameter("price"));
 
 
-        int customerId = 0;
-        int length = 0;
-        int width = 0;
-        int incline = 0;
-        int roofTileType = 0;
-        int withShed = 0;
-        int shedLength = 0;
-        int shedWidth = 0;
-        int shedWallType = 0;
-        int shedFloorType = 0;
-        String comments = null;
-        Order order = orderMapper.CreateOrder(customerId, length, width,incline, roofTileType,withShed,shedLength,shedWidth,shedWallType,shedFloorType,comments,price);
+        Order order = orderFacade.addOrder(0,standardCarportId,standardCarportName,0,0,0,0,0,0,0,0,0,"",price);
+
+        HttpSession session = request.getSession(false);
+
+        session.setAttribute("carportid",standardCarportId);
+        session.setAttribute("name",standardCarportName);
+        session.setAttribute("price",price);
 
 
 
 
-        return null;
+
+        return "index.jsp";
     }
 
 

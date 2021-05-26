@@ -31,9 +31,22 @@
 
                     <td>${product.price}</td>
 
-                    </td>
+
 
                 <tr/>
+
+                <label>
+                    <input type="hidden" name="carportId" value="${product.carportId}" />
+                    <input type="hidden" name="name" value="${product.name}" />
+
+                    <input type="hidden" name="price" value="${product.price}" />
+                </label>
+
+
+
+
+
+
             </c:forEach>
         </table>
 
@@ -42,9 +55,14 @@
         <br/>
         <br/>
 
+
+
+
         <div/>
+           <input class="btn btn-primary"  type="submit"  value="Submit">
+
+
         </form>
-        <div><td><input class="btn btn-primary" type="submit" type="submit" value="Submit">
 
         <a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/fc/standartcarport" >Køb mere</a>
 

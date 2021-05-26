@@ -1,7 +1,6 @@
 package business.persistence;
 
 import business.entities.Order;
-import business.entities.Product;
 import business.entities.UserOrder;
 import business.exceptions.UserException;
 
@@ -17,6 +16,39 @@ public class OrderMapper {
     public OrderMapper(Database database) {
         this.database = database;
     }
+
+    public void CreateOrder(Order order) throws SQLException {
+        try (Connection connection = database.connect()) {
+            String sql = "INSERT INTO orders(`customerId`, `StandardCarportId`,  `StandardCarportName`,  `length`, `width`, `incline`, `roofTileType`, `withShed`, `shedLength`, `shedWidth`, `shedWallType`, `shedFloorType`, `comments`, Price) values (?,?,?,?,?,?,?,?,?,?,?,?);";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                ps.setInt(1, order.getCustomerId());
+                ps.setInt(2, order.getStandardCarportId());
+                ps.setString(3, order.getStandardCarportName());
+                ps.setInt(4, order.getCarportlength());
+                ps.setInt(5, order.getCarportwidth());
+                ps.setInt(6, order.getIncline());
+                ps.setInt(7, order.getRooftileType());
+                ps.setInt(8, order.getWithShed());
+                ps.setInt(9, order.getShedLenght());
+                ps.setInt(10, order.getShedWidth());
+                ps.setInt(11, order.getShedWalltype());
+                ps.setInt(12, order.getShedFloorType());
+                ps.setString(13, order.getComments());
+                ps.setDouble(14,order.getPrice());
+                ps.executeUpdate();
+                ResultSet ids = ps.getGeneratedKeys();
+                ids.next();
+
+
+            }
+
+        }
+    }
+
+
+
+
 
     public int updateOrder(int idOrder, double price) throws SQLException, UserException {
 

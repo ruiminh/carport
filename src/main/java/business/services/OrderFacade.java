@@ -1,5 +1,6 @@
 package business.services;
 
+import business.entities.Order;
 import business.entities.UserOrder;
 import business.exceptions.UserException;
 import business.persistence.Database;
@@ -49,6 +50,12 @@ public List<UserOrder> getuserOrder() throws SQLException {
         orderMapper.DBUpdatePrice(orderId,totalPrice);
     }
 
+
+    public Order addOrder(int customerId, int standardCarportId, String standardCarportName, int length, int width, int incline, int roofTileType, int withShed, int shedLength, int shedWidth, int shedWallType, int shedFloorType, String comments, Double price) throws SQLException {
+    Order order = new Order(0,0,0,standardCarportId,standardCarportName,0,0,0,0,0,0,0,0,0,0,0,price,"",false,false);
+        orderMapper.CreateOrder(order);
+        return order;
+}
 
 
 }

@@ -5,6 +5,8 @@ public class Order {
     private int orderId;
     private int customerId;
     private int employeeId;
+    private int standardCarportId;
+    private String StandardCarportName;
     private int carportlength;
     private int carportwidth;
     private int incline;
@@ -44,6 +46,29 @@ public class Order {
 
 
 
+    }
+
+    public Order(int orderId, int customerId, int employeeId, int standardCarportId, String standardCarportName, int carportlength, int carportwidth, int incline, int rooftileType, int withShed, int shedLenght, int shedHight, int shedWidth, int shedWalltype, int shedFloorType, int quantity, double price, String comments, boolean isAccepted, boolean isDelivered) {
+        this.orderId = orderId;
+        this.customerId = customerId;
+        this.employeeId = employeeId;
+        this.standardCarportId = standardCarportId;
+        StandardCarportName = standardCarportName;
+        this.carportlength = carportlength;
+        this.carportwidth = carportwidth;
+        this.incline = incline;
+        this.rooftileType = rooftileType;
+        this.withShed = withShed;
+        this.shedLenght = shedLenght;
+        this.shedHight = shedHight;
+        this.shedWidth = shedWidth;
+        this.shedWalltype = shedWalltype;
+        this.shedFloorType = shedFloorType;
+        this.quantity = quantity;
+        this.price = price;
+        this.comments = comments;
+        this.isAccepted = isAccepted;
+        this.isDelivered = isDelivered;
     }
 
     public int getOrderId() {
@@ -189,4 +214,12 @@ public class Order {
     public void setDelivered(boolean delivered) {
         isDelivered = delivered;
     }
+
+    public String getStandardCarportName() { return StandardCarportName; }
+
+    public void setStandardCarportName(String standardCarportName) { StandardCarportName = standardCarportName; }
+
+    public int getStandardCarportId() { return standardCarportId; }
+
+    public void setStandardCarportId(int standardCarportId) { this.standardCarportId = standardCarportId; }
 }
