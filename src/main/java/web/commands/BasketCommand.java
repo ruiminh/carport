@@ -25,7 +25,7 @@ public class BasketCommand extends CommandUnprotectedPage {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
-        int carportId = 0;
+  
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
