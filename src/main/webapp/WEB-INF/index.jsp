@@ -20,6 +20,7 @@
 
 
 
+
             <c:if test="${sessionScope.customerId != null}">
                 <a href="${pageContext.request.contextPath}/fc/carportdesignpage">Design selv carporte</a>
             </c:if>
