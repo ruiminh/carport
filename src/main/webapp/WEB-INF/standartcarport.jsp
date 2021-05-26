@@ -37,7 +37,7 @@
                             </div>
 
                             <label>
-
+                                <input type="hidden" name="carportId" value="${product.carportId}" />
                                 <input type="hidden" name="name" value="${product.name}" />
                                 <input type="hidden" name="quantity" value="${product.quantity}" />
                                 <input type="hidden" name="price" value="${product.price}" />
@@ -77,7 +77,7 @@
                             </div>
 
                             <label>
-
+                                <input type="hidden" name="carportId" value="${product.carportId}" />
                                 <input type="hidden" name="name" value="${product.name}" />
                                 <input type="hidden" name="quantity" value="${product.quantity}" />
                                 <input type="hidden" name="price" value="${product.price}" />

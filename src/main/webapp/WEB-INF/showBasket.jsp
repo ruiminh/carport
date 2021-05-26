@@ -13,6 +13,9 @@
 
 
         <div>
+
+        <form name="login" action="${pageContext.request.contextPath}/fc/confirmcommand" method="POST">
+
         <h3>Du har valgt følgende carporte:</h3>
 
         <br/>
@@ -27,10 +30,9 @@
                     <td>${product.name}</td>
 
                     <td>${product.price}</td>
-                    <td><button class="btn btn-outline-danger btn-sm" type="submit" name="delete" value="${status.index}">
-                        delete</button>
 
                     </td>
+
                 <tr/>
             </c:forEach>
         </table>
@@ -41,8 +43,8 @@
         <br/>
 
         <div/>
-
-        <div>
+        </form>
+        <div><td><input class="btn btn-primary" type="submit" type="submit" value="Submit">
 
         <a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/fc/standartcarport" >Køb mere</a>
 
