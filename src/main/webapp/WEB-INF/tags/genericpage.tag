@@ -15,21 +15,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/styles.css">
-    <meta name="theme-color" content="#000099">
+    <meta name="theme-color" content="#0000ff">
 </head>
 <body>
     <!--
         This header is inspired by this bootstrap
         example: https://getbootstrap.com/docs/5.0/examples/pricing/
     -->
-<header class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 bg-white border-bottom shadow-sm">
+<header class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 bg-primary border-bottom shadow-sm ">
     <div class="h5 my-0 me-md-auto fw-normal">
-
+        <img src="${pageContext.servletContext.contextPath}/css/index.jpg" height="50" width="50"/>
         <p style="font-size: larger">
             <jsp:invoke fragment="header"/>
         </p>
     </div>
-    <nav class="my-2 my-md-0 me-md-3">
+    <nav class="my-2 my-md-0 me-md-3 ">
         <c:if test="${addHomeLink == null }">
             <a class="p-2 text-dark" href="<%=request.getContextPath()%>">Home</a>
         </c:if>
