@@ -19,7 +19,7 @@ public class OrderMapper {
 
     public void CreateOrder(Order order) throws SQLException {
         try (Connection connection = database.connect()) {
-            String sql = "INSERT INTO orders(`customerId`, `StandardCarportId`,  `StandardCarportName`,  `length`, `width`, `incline`, `roofTileType`, `withShed`, `shedLength`, `shedWidth`, `shedWallType`, `shedFloorType`, `comments`, Price) values (?,?,?,?,?,?,?,?,?,?,?,?);";
+            String sql = "INSERT INTO Orders(`customerId`, `StandardCarportId`,  `StandardCarportName`,  `length`, `width`, `incline`, `roofTileType`, `withShed`, `shedLength`, `shedWidth`, `shedWallType`, `shedFloorType`, `comments`, Price) values (?,?,?,?,?,?,?,?,?,?,?,?);";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setInt(1, order.getCustomerId());
@@ -55,7 +55,7 @@ public class OrderMapper {
 
         try (Connection connection = database.connect()) {
 
-            String sql = "UPDATE orders SET Price =? WHERE idOrder = ?;";
+            String sql = "UPDATE Orders SET Price =? WHERE idOrder = ?;";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
@@ -146,7 +146,7 @@ public class OrderMapper {
 
         try (Connection connection = database.connect()) {
 
-            String sql = "SELECT * FROM orders WHERE idOrder = ?;";
+            String sql = "SELECT * FROM Orders WHERE idOrder = ?;";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
@@ -197,7 +197,7 @@ public class OrderMapper {
 
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO orders(`customerId`, `length`, `width`, `incline`, `roofTileType`, `withShed`, `shedLength`, `shedWidth`, `shedWallType`, `shedFloorType`, `comments`) values (?,?,?,?,?,?,?,?,?,?,?);";
+            String sql = "INSERT INTO Orders(`customerId`, `length`, `width`, `incline`, `roofTileType`, `withShed`, `shedLength`, `shedWidth`, `shedWallType`, `shedFloorType`, `comments`) values (?,?,?,?,?,?,?,?,?,?,?);";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
@@ -217,6 +217,7 @@ public class OrderMapper {
                 ids.next();
                 int tempOrderId = ids.getInt(1);
                     //System.out.println(ids);            testet, og det virker den sender det nye orderId tilbage i temporderId
+                System.out.println("help"+tempOrderId);
 
                 double totalprice = calcCarportFlatRoof(tempOrderId,length,width,withShed,shedLength,shedWidth);
                 System.out.println("totalprice "+totalprice);
@@ -244,7 +245,7 @@ public class OrderMapper {
         double tempDBprice = 1;
 
         try (Connection connection = database.connect()) {
-            String sql = "SELECT * from `Carport`.`Materials` WHERE idMaterial = ?;";
+            String sql = "SELECT * from Materials WHERE idMaterial = ?;";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
@@ -334,7 +335,7 @@ public class OrderMapper {
     public void DBUpdatePrice(int orderId, double totalPrice) throws SQLException {
 
     try (Connection connection = database.connect()) {
-        String sql = "UPDATE orders SET `price` = ROUND(?,2) WHERE idOrder = ?";
+        String sql = "UPDATE Orders SET `price` = ROUND(?,2) WHERE idOrder = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             ps.setDouble(1, totalPrice);

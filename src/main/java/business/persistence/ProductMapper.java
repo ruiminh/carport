@@ -26,7 +26,7 @@ public class ProductMapper {
         List<Product> productList = new ArrayList<>();
 
         try (Connection connection = database.connect()) {
-            String sql = "SELECT * FROM standardcarport";
+            String sql = "SELECT * FROM StandardCarport";
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
 
@@ -52,7 +52,7 @@ public class ProductMapper {
 
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO orders (StandardCarportName, price,Quantity) VALUES (?, ?,?)";
+            String sql = "INSERT INTO Orders (StandardCarportName, price,Quantity) VALUES (?, ?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {

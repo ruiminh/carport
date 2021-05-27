@@ -33,9 +33,6 @@ public class DesignCarportCommand extends CommandUnprotectedPage
         tempo = request.getParameter("withshed");
         int carportWithShed = Integer.parseInt(tempo);
 
-//        tempo = request.getParameter("carportRoofType");              returns null, should be replaced with a lookup in database for rooftype later, but we are way behind. - hardcoding value 1 as we only have 1 type of roof at the moment.
-//        int carportRoofType = Integer.parseInt(tempo);
-//        System.out.println(carportRoofType);
         int carportRoofType = 1;
 
         int shedlength = 0;         //default noshed - we do this to prevent the null value
@@ -55,23 +52,6 @@ public class DesignCarportCommand extends CommandUnprotectedPage
         }
 
         orderFacade.createOrder(customerId,carportLength,carportWidth,0,carportRoofType,carportWithShed,shedlength,shedwidth,0,0,"0");
-
-
-
-
-//
-
-
-
-
-
-
-        //int userId =   what to do
-//        if (carportWithShed == 1){
-//            shedlength = request.getIntHeader("shedlength");
-//            shedwidth = request.getIntHeader("shedwidth");
-//        }
-
 
 
         return "carportDesigned";
